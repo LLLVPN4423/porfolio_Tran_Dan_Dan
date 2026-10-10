@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "galleries": {
+    "velvet": {
+      "id": "velvet",
+      "folder": "Event - Velvet 9 Nhung",
+      "images": [
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%201.jpg",
+          "alt": "velvet 1"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%202.jpg",
+          "alt": "velvet 2"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%203.jpg",
+          "alt": "velvet 3"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%204.jpg",
+          "alt": "velvet 4"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%205.jpg",
+          "alt": "velvet 5"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet%206.jpg",
+          "alt": "velvet 6"
+        },
+        {
+          "src": "./assets/Event%20-%20Velvet%209%20Nhung/velvet.jpg",
+          "alt": "velvet"
+        }
+      ]
+    },
+    "tu-chien-talk": {
+      "id": "tu-chien-talk",
+      "folder": "Event - Talk show Tử chiến Talk",
+      "images": [
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%201.jpg",
+          "alt": "tử chiến 1"
+        },
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%202.jpg",
+          "alt": "tử chiến 2"
+        },
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%203.jpg",
+          "alt": "tử chiến 3"
+        },
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%204.jpg",
+          "alt": "tử chiến 4"
+        },
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%205.jpg",
+          "alt": "tử chiến 5"
+        },
+        {
+          "src": "./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%206.jpg",
+          "alt": "tử chiến 6"
+        }
+      ]
+    },
+    "thuc-tap-fpt": {
+      "id": "thuc-tap-fpt",
+      "folder": "Thực tập FPT",
+      "images": [
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%201.jpg",
+          "alt": "fpt 1"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%202.jpg",
+          "alt": "fpt 2"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%203.jpg",
+          "alt": "fpt 3"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%204.jpg",
+          "alt": "fpt 4"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%205.jpg",
+          "alt": "fpt 5"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%206.jpg",
+          "alt": "fpt 6"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%207.jpg",
+          "alt": "fpt 7"
+        }
+      ]
+    },
+    "qua-ngot-trao-em": {
+      "id": "qua-ngot-trao-em",
+      "folder": "Event - Quà ngọt trao em",
+      "images": [
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qnte%206.jpg",
+          "alt": "qnte 6"
+        },
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em%201.jpg",
+          "alt": "quà ngọt trao em 1"
+        },
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em%202.jpg",
+          "alt": "quà ngọt trao em 2"
+        },
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em%203.jpg",
+          "alt": "quà ngọt trao em 3"
+        },
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em.jpg",
+          "alt": "quà ngọt trao em"
+        },
+        {
+          "src": "./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/z5028052223471_a5b8994d98c89ebe0f9fe465a2a7a35a.jpg",
+          "alt": "z5028052223471_a5b8994d98c89ebe0f9fe465a2a7a35a"
+        }
+      ]
+    },
+    "giai-chay": {
+      "id": "giai-chay",
+      "folder": "Event - Giải chạy",
+      "images": [
+        {
+          "src": "./assets/Event%20-%20Gi%E1%BA%A3i%20ch%E1%BA%A1y/gi%E1%BA%A3i%20ch%E1%BA%A1y%203.jpg",
+          "alt": "giải chạy 3"
+        },
+        {
+          "src": "./assets/Event%20-%20Gi%E1%BA%A3i%20ch%E1%BA%A1y/gi%E1%BA%A3i%20ch%E1%BA%A1y%204.jpg",
+          "alt": "giải chạy 4"
+        },
+        {
+          "src": "./assets/Event%20-%20Gi%E1%BA%A3i%20ch%E1%BA%A1y/gi%E1%BA%A3i%20ch%E1%BA%A1y.jpg",
+          "alt": "giải chạy"
+        },
+        {
+          "src": "./assets/Event%20-%20Gi%E1%BA%A3i%20ch%E1%BA%A1y/gi%E1%BA%A3i%20ch%E1%BA%A1y2.jpg",
+          "alt": "giải chạy2"
+        }
+      ]
+    },
+    "whose-chance-talk": {
+      "id": "whose-chance-talk",
+      "folder": "Event - whose chance talk",
+      "images": [
+        {
+          "src": "./assets/Event%20-%20whose%20chance%20talk/whose%20chance%20talk%202.jpg",
+          "alt": "whose chance talk 2"
+        },
+        {
+          "src": "./assets/Event%20-%20whose%20chance%20talk/whose%20chance%20talk.jpg",
+          "alt": "whose chance talk"
+        },
+        {
+          "src": "./assets/Event%20-%20whose%20chance%20talk/z5028044498507_886a9ead469c6d4cd49b31f90a2432f4.jpg",
+          "alt": "z5028044498507_886a9ead469c6d4cd49b31f90a2432f4"
+        },
+        {
+          "src": "./assets/Event%20-%20whose%20chance%20talk/z5028070079241_1767433177929679fd9ebc1ae1f3a574.jpg",
+          "alt": "z5028070079241_1767433177929679fd9ebc1ae1f3a574"
+        }
+      ]
+    },
+    "ctv-khoa": {
+      "id": "ctv-khoa",
+      "folder": "Content - CTV Khoa",
+      "images": [
+        {
+          "src": "./assets/Content%20-%20CTV%20Khoa/ctv%201.jpg",
+          "alt": "ctv 1"
+        },
+        {
+          "src": "./assets/Content%20-%20CTV%20Khoa/ctv%202.jpg",
+          "alt": "ctv 2"
+        },
+        {
+          "src": "./assets/Content%20-%20CTV%20Khoa/ctv.jpg",
+          "alt": "ctv"
+        }
+      ]
+    },
+    "saigon-image": {
+      "id": "saigon-image",
+      "folder": "Content - SaiGon Image Festival",
+      "images": [
+        {
+          "src": "./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image%201.jpg",
+          "alt": "sg image 1"
+        },
+        {
+          "src": "./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image%202.jpg",
+          "alt": "sg image 2"
+        },
+        {
+          "src": "./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image%203.jpg",
+          "alt": "sg image 3"
+        },
+        {
+          "src": "./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image%204.jpg",
+          "alt": "sg image 4"
+        },
+        {
+          "src": "./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image.jpg",
+          "alt": "sg image"
+        }
+      ]
+    },
+    "quay-chup": {
+      "id": "quay-chup",
+      "folder": "Quay chụp",
+      "images": [
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/3.jpg",
+          "alt": "3"
+        },
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%201.jpg",
+          "alt": "ảnh chụp 1"
+        },
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%202.jpg",
+          "alt": "ảnh chụp 2"
+        },
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%203.jpg",
+          "alt": "ảnh chụp 3"
+        },
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%204.jpg",
+          "alt": "ảnh chụp 4"
+        },
+        {
+          "src": "./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p.jpg",
+          "alt": "ảnh chụp"
+        }
+      ]
+    }
+  }
+}

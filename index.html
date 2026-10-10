@@ -22,13 +22,20 @@
         extend: {
           colors: {
             sea: {
-              DEFAULT: '#1D3557',
-              light: '#457B9D',
-              muted: '#A8DADC',
+              DEFAULT: '#2A3B52',
+              light: '#5A7694',
+              muted: '#A3B5C9',
+              dark: '#1E2A3A',
+            },
+            accent: {
+              pink: '#E07A9A',
+              rose: '#F0A4B8',
+              red: '#C8465C',
+              coral: '#E56B7A',
             },
             beige: {
-              DEFAULT: '#FAF9F6',
-              alt: '#F5EFED',
+              DEFAULT: '#F2F5F8',
+              alt: '#E6ECF2',
             },
           },
           fontFamily: {
@@ -46,8 +53,9 @@
     }
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      color: #1D3557;
+      color: #2A3B52;
       overflow-x: hidden;
+      background-color: #F2F5F8;
     }
 
     .parallax-section {
@@ -110,7 +118,7 @@
     }
 
     .nav-link.active {
-      color: #457B9D;
+      color: #C8465C;
     }
     .nav-link.active::after {
       width: 100%;
@@ -120,8 +128,11 @@
       display: block;
       height: 2px;
       width: 0;
-      background: #457B9D;
+      background: linear-gradient(90deg, #5A7694 0%, #E07A9A 100%);
       transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #5A7694;
     }
     .nav-link:hover::after {
       width: 100%;
@@ -144,11 +155,264 @@
     .portfolio-card {
       transition: box-shadow 0.3s ease;
     }
+    .portfolio-card-interactive {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .portfolio-card-media {
+      position: relative;
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      background: #E6ECF2;
+    }
+    .portfolio-card-media:focus-visible {
+      outline: 2px solid #E07A9A;
+      outline-offset: 2px;
+    }
+    .portfolio-card-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 2;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(30, 42, 58, 0.82);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+    .portfolio-card-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(180deg, transparent 35%, rgba(30, 42, 58, 0.75) 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .portfolio-card-media:hover .portfolio-card-overlay,
+    .portfolio-card-media:focus-visible .portfolio-card-overlay {
+      opacity: 1;
+    }
+    .portfolio-open-gallery {
+      margin-top: auto;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #5A7694;
+      background: rgba(224, 122, 154, 0.08);
+      border: 0;
+      border-top: 1px solid rgba(163, 181, 201, 0.35);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .portfolio-open-gallery:hover {
+      background: linear-gradient(90deg, rgba(90, 118, 148, 0.12) 0%, rgba(224, 122, 154, 0.18) 100%);
+      color: #C8465C;
+    }
+
+    .portfolio-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    .portfolio-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .portfolio-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 42, 58, 0.62);
+      backdrop-filter: blur(4px);
+    }
+    .portfolio-modal-panel {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 56rem;
+      max-height: min(92vh, 900px);
+      margin: 0 auto;
+      background: #F2F5F8;
+      border-radius: 1.25rem 1.25rem 0 0;
+      box-shadow: 0 -8px 40px rgba(30, 42, 58, 0.25);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (min-width: 640px) {
+      .portfolio-modal {
+        align-items: center;
+        padding: 1.5rem;
+      }
+      .portfolio-modal-panel {
+        border-radius: 1.25rem;
+        max-height: min(88vh, 820px);
+        transform: translateY(24px) scale(0.98);
+      }
+    }
+    .portfolio-modal.is-open .portfolio-modal-panel {
+      transform: translateY(0) scale(1);
+    }
+    .portfolio-modal-header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 1.25rem 0.75rem;
+      border-bottom: 1px solid rgba(163, 181, 201, 0.35);
+    }
+    .portfolio-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.25rem 1.5rem;
+    }
+    .portfolio-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .portfolio-modal-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+    .portfolio-modal-thumb {
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: #E6ECF2;
+      box-shadow: 0 2px 8px rgba(42, 59, 82, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .portfolio-modal-thumb:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(200, 70, 92, 0.15);
+    }
+    .portfolio-modal-thumb img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .portfolio-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(15, 20, 28, 0.92);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .portfolio-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .portfolio-lightbox img {
+      max-width: min(100%, 1100px);
+      max-height: min(85vh, 900px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .portfolio-lightbox-close,
+    .portfolio-lightbox-nav {
+      position: absolute;
+      border: 0;
+      cursor: pointer;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border-radius: 9999px;
+      width: 2.75rem;
+      height: 2.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .portfolio-lightbox-close:hover,
+    .portfolio-lightbox-nav:hover {
+      background: rgba(224, 122, 154, 0.45);
+    }
+    .portfolio-lightbox-close {
+      top: 1rem;
+      right: 1rem;
+    }
+    .portfolio-lightbox-nav.prev {
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .portfolio-lightbox-nav.next {
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .portfolio-lightbox-caption {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 90%;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(30, 42, 58, 0.65);
+    }
+    body.portfolio-modal-open {
+      overflow: hidden;
+    }
 
     .filter-btn.active {
-      background-color: #1D3557;
+      background: linear-gradient(135deg, #2A3B52 0%, #5A7694 55%, #C8465C 100%);
       color: #fff;
-      border-color: #1D3557;
+      border-color: #2A3B52;
+      box-shadow: 0 8px 22px rgba(200, 70, 92, 0.22);
+    }
+    .filter-btn:not(.active):hover {
+      border-color: #E07A9A;
+      color: #C8465C;
     }
 
     .skill-bar-fill {
@@ -159,7 +423,7 @@
       font-family: 'Caveat', cursive;
       font-size: 2.75rem;
       line-height: 1;
-      color: #4a6278;
+      color: #5A7694;
     }
     .software-icon {
       width: 2.75rem;
@@ -170,7 +434,7 @@
       align-items: center;
       justify-content: center;
       background: #fff;
-      box-shadow: 0 1px 3px rgba(29, 53, 87, 0.12);
+      box-shadow: 0 1px 3px rgba(42, 59, 82, 0.12);
       padding: 0.35rem;
     }
     .software-icon svg {
@@ -182,18 +446,53 @@
       flex: 1;
       height: 0.45rem;
       border-radius: 9999px;
-      background: #dce6ee;
+      background: #D5DEE8;
       overflow: hidden;
     }
     .software-bar-fill {
       height: 100%;
       border-radius: 9999px;
-      background: #4a6278;
+      background: linear-gradient(90deg, #5A7694 0%, #E07A9A 100%);
       transition: width 1.2s ease-out;
     }
 
     .hero-gradient {
-      background: linear-gradient(135deg, #FAF9F6 0%, #F5EFED 50%, rgba(168, 218, 220, 0.25) 100%);
+      background: linear-gradient(135deg, #F2F5F8 0%, #E6ECF2 45%, rgba(224, 122, 154, 0.14) 100%);
+    }
+
+    .cert-gallery-card {
+      background: linear-gradient(180deg, #F2F5F8 0%, #E6ECF2 100%);
+      border: 1px solid rgba(90, 118, 148, 0.22);
+    }
+    .cert-gallery-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 10rem;
+      padding: 0.75rem;
+    }
+    .cert-gallery-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(26rem, 72vh);
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #5A7694 0%, #2A3B52 100%);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #C8465C 0%, #E07A9A 100%);
+    }
+    .btn-outline-accent:hover {
+      background: linear-gradient(135deg, #E07A9A 0%, #C8465C 100%);
+      border-color: transparent;
+      color: #fff;
+    }
+    .section-accent-dot {
+      color: #E07A9A;
     }
 
     #mobile-menu {
@@ -209,7 +508,7 @@
 <body class="bg-beige text-sea antialiased">
 
   <!-- ========== HEADER / NAVIGATION ========== -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-shadow">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-beige/95 backdrop-blur-md shadow-sm transition-shadow border-b border-sea-muted/30">
     <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Điều hướng chính">
       <div class="flex items-center justify-between h-16 md:h-20">
         <a href="#hero" class="font-serif text-xl md:text-2xl font-semibold text-sea tracking-tight">
@@ -223,7 +522,7 @@
           <li><a href="#certificates" class="nav-link py-1" data-section="certificates">Chứng nhận</a></li>
         </ul>
 
-        <a href="#portfolio" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sea-light text-white text-sm font-medium hover:bg-sea transition-colors">
+        <a href="#portfolio" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-primary text-white text-sm font-medium transition-all shadow-md hover:shadow-lg">
           Khám phá Dự án
           <i class="fa-solid fa-arrow-right text-xs"></i>
         </a>
@@ -250,9 +549,10 @@
     <!-- ========== HERO SECTION ========== -->
     <section id="hero" class="parallax-section hero-gradient min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.4" aria-hidden="true">
-        <div class="blob w-[420px] h-[420px] bg-sea-muted/60 top-[-5%] right-[5%]"></div>
-        <div class="blob w-[320px] h-[320px] bg-sea-light/30 bottom-[10%] left-[-5%]"></div>
-        <div class="blob w-[200px] h-[200px] bg-white/80 top-[40%] left-[30%]"></div>
+        <div class="blob w-[420px] h-[420px] bg-sea-muted/50 top-[-5%] right-[5%]"></div>
+        <div class="blob w-[320px] h-[320px] bg-sea-light/25 bottom-[10%] left-[-5%]"></div>
+        <div class="blob w-[240px] h-[240px] bg-accent-rose/35 top-[35%] left-[25%]"></div>
+        <div class="blob w-[180px] h-[180px] bg-accent-pink/25 top-[15%] right-[20%]"></div>
       </div>
       <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center parallax-content">
         <div class="parallax-reveal parallax-move" data-parallax-speed="-0.12">
@@ -269,11 +569,11 @@
             Một Gen Z đam mê kết hợp Internal Communication – Event – Social để tối ưu nguồn lực, lan tỏa thông điệp và tạo ra những trải nghiệm văn hóa doanh nghiệp đáng nhớ.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="#portfolio" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-sea-light text-white font-medium hover:bg-sea transition-all hover:shadow-lg">
+            <a href="#portfolio" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full btn-primary text-white font-medium transition-all hover:shadow-lg">
               Khám phá Dự án
               <i class="fa-solid fa-chevron-down text-sm"></i>
             </a>
-            <a href="mailto:trandandan.hgi300@gmail.com" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-sea-light text-sea-light font-medium hover:bg-sea-light hover:text-white transition-all">
+            <a href="mailto:trandandan.hgi300@gmail.com" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-accent-pink text-sea-light font-medium btn-outline-accent transition-all">
               Email
             </a>
           </div>
@@ -292,7 +592,7 @@
     </section>
 
     <!-- ========== ABOUT ME SECTION ========== -->
-    <section id="about" class="parallax-section py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
+    <section id="about" class="parallax-section py-20 md:py-28 bg-beige-alt/80 px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.25" aria-hidden="true">
         <div class="blob w-[500px] h-[500px] bg-beige-alt top-[-15%] left-[-10%]"></div>
         <div class="blob w-[280px] h-[280px] bg-sea-muted/40 bottom-[0] right-[0]"></div>
@@ -401,11 +701,11 @@
             <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
               <h4 class="font-serif text-lg font-semibold text-sea mb-4">Kỹ năng mềm (Soft Skills)</h4>
               <div class="flex flex-wrap gap-2">
-                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">MC &amp; Dẫn chương trình</span>
-                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">Truyền thông nội bộ</span>
-                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">Làm việc nhóm</span>
-                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">Sáng tạo nội dung</span>
-                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">Giao tiếp đa kênh</span>
+                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">MC &amp; Dẫn chương trình</span>
+                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Truyền thông nội bộ</span>
+                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Làm việc nhóm</span>
+                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Sáng tạo nội dung</span>
+                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Giao tiếp đa kênh</span>
               </div>
             </div>
           </div>
@@ -418,11 +718,12 @@
       <div
         class="parallax-bg-image is-fixed bg-beige-alt"
         data-parallax-bg-scale="0.15"
-        style="background-image: linear-gradient(160deg, #F5EFED 0%, #FAF9F6 40%, rgba(69, 123, 157, 0.12) 100%);"
+        style="background-image: linear-gradient(160deg, #E6ECF2 0%, #F2F5F8 42%, rgba(90, 118, 148, 0.16) 68%, rgba(224, 122, 154, 0.12) 100%);"
         aria-hidden="true"
       ></div>
       <div class="parallax-bg-layer" data-parallax-bg="0.3" aria-hidden="true">
         <div class="blob w-[360px] h-[360px] bg-sea-light/25 top-[20%] right-[-8%]"></div>
+        <div class="blob w-[300px] h-[300px] bg-accent-pink/20 bottom-[5%] left-[-8%]"></div>
         <div class="blob w-[440px] h-[440px] bg-white/70 bottom-[-10%] left-[-12%]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
@@ -430,6 +731,7 @@
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Portfolio</h2>
           <p class="text-sea/70 max-w-2xl mx-auto">
             Tổng hợp các dự án Event, Content và Quay chụp trong hành trình truyền thông nội bộ, sự kiện và sản xuất media.
+            <span class="block mt-2 text-sm text-sea-light">Nhấn vào ảnh hoặc <strong class="font-medium text-accent-red">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
           </p>
         </div>
 
@@ -453,135 +755,165 @@
         <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative min-h-[200px]">
 
           <!-- Event cards -->
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.07">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.07" data-gallery-id="velvet">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Velvet 9 Nhung">
               <img src="./assets/Event%20-%20Velvet%209%20Nhung/velvet%201.jpg" alt="Dạ tiệc cao cấp Velvet 9: Nhung" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Dạ tiệc cao cấp &quot;Velvet 9: Nhung&quot;</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Lên kế hoạch, điều phối timeline và quản lý truyền thông cho sự kiện quy mô hơn 350 người cùng 30 khách mời doanh nghiệp lớn (Dat Xanh, ELLE, FPT...).</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.11">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.11" data-gallery-id="tu-chien-talk">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Tử chiến Talk">
               <img src="./assets/Event%20-%20Talk%20show%20T%E1%BB%AD%20chi%E1%BA%BFn%20Talk/t%E1%BB%AD%20chi%E1%BA%BFn%201.jpg" alt="Talkshow Tử chiến Talk" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Talkshow &quot;Tử chiến Talk&quot;</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Phó Ban tổ chức.</strong> Điều phối tổng thể, đón tiếp khách mời VIP (đạo diễn, diễn viên) và chịu trách nhiệm hình ảnh chính cho sự kiện quy mô 200+ sinh viên.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.09">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.09" data-gallery-id="thuc-tap-fpt">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Thực tập FPT">
               <img src="./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%201.jpg" alt="Thực tập FPT" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Thực tập FPT</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thực tập sinh.</strong> Trực tiếp tổ chức các hoạt động thể thao, giải trí thường niên và teambuilding nhằm đẩy mạnh truyền thông đối nội bộ phận.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.13">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.13" data-gallery-id="qua-ngot-trao-em">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Quà Ngọt Trao Em">
               <img src="./assets/Event%20-%20Qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em/qu%C3%A0%20ng%E1%BB%8Dt%20trao%20em%201.jpg" alt="Dự án thiện nguyện Quà Ngọt Trao Em" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Dự án thiện nguyện &quot;Quà Ngọt Trao Em&quot;</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Điều phối chạy toàn bộ chương trình trong 1 tháng, quản lý thành viên và trao tặng thành công hơn 700 phần quà.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.1">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.1" data-gallery-id="giai-chay">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Giải chạy">
               <img src="./assets/Event%20-%20Gi%E1%BA%A3i%20ch%E1%BA%A1y/gi%E1%BA%A3i%20ch%E1%BA%A1y%203.jpg" alt="Giải chạy" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Giải chạy</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về dự án Giải chạy. Ảnh sẽ map từ thư mục assets/Event - Giải chạy.]</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.14">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.14" data-gallery-id="whose-chance-talk">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Whose chance talk">
               <img src="./assets/Event%20-%20whose%20chance%20talk/whose%20chance%20talk%202.jpg" alt="Whose chance talk" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Whose chance talk</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về sự kiện Whose chance talk. Ảnh sẽ map từ assets/Event - whose chance talk.]</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
           <!-- Content cards -->
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="content" data-parallax-speed="0.08">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="content" data-parallax-speed="0.08" data-gallery-id="ctv-khoa">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album CTV Khoa">
               <img src="./assets/Content%20-%20CTV%20Khoa/ctv%201.jpg" alt="Quản trị Fanpage Khoa KHXH&amp;QHCC" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Quản trị Fanpage Khoa KHXH&amp;QHCC</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Lập kế hoạch, viết kịch bản và bài PR trước-trong-sau sự kiện, duy trì tương tác ổn định trung bình &gt;100 lượt/bài.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="content" data-parallax-speed="0.12">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="content" data-parallax-speed="0.12" data-gallery-id="saigon-image">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album SaiGon Image Festival">
               <img src="./assets/Content%20-%20SaiGon%20Image%20Festival/sg%20image%201.jpg" alt="SaiGon Image Festival" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">SaiGon Image Festival</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thành viên Đội truyền thông.</strong> Phụ trách xây dựng tuyến bài viết truyền thông cho cuộc thi nhiếp ảnh, các bài viết đạt hơn 1.000 lượt xem và tương tác.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
           <!-- Quay chụp cards -->
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="quay-chup" data-parallax-speed="0.07">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="quay-chup" data-parallax-speed="0.07" data-gallery-id="quay-chup">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Quay chụp Tiktok FPT">
               <img src="./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%201.jpg" alt="Kênh Tiktok FPT Software" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Xây dựng Kênh Tiktok FPT Software</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thực tập sinh.</strong> Trực tiếp sản xuất kênh truyền thông Tiktok cho bộ phận, tự tay quay dựng và tạo series truyền thông liên tiếp 8 số.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="quay-chup" data-parallax-speed="0.11">
-          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            <div class="aspect-video bg-beige overflow-hidden">
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="quay-chup" data-parallax-speed="0.11" data-gallery-id="quay-chup">
+          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Media Recap HUTECH">
               <img src="./assets/Quay%20ch%E1%BB%A5p/%E1%BA%A3nh%20ch%E1%BB%A5p%202.jpg" alt="Media Recap HUTECH" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
+              <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
+              <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
+            </button>
+            <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
               <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Media Recap HUTECH</h3>
               <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Trực tiếp quay dựng các clip ngắn, video recap sự kiện khoa, đạt mốc tiếp cận hơn 1.000 lượt xem cho mỗi lần đăng tải.</p>
             </div>
+            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
@@ -590,10 +922,11 @@
     </section>
 
     <!-- ========== CHỨNG NHẬN & KỸ NĂNG BỔ TRỢ SECTION ========== -->
-    <section id="certificates" class="parallax-section py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
+    <section id="certificates" class="parallax-section py-20 md:py-28 bg-beige px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.18" aria-hidden="true">
         <div class="blob w-[400px] h-[400px] bg-beige-alt top-[-10%] right-[-5%]"></div>
         <div class="blob w-[280px] h-[280px] bg-sea-muted/30 bottom-[0] left-[0]"></div>
+        <div class="blob w-[220px] h-[220px] bg-accent-rose/25 top-[30%] left-[8%]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.08">
@@ -607,28 +940,38 @@
           <!-- Giấy chứng nhận -->
           <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
             <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
-              <i class="fa-solid fa-certificate text-sea-light"></i> Giấy chứng nhận
+              <i class="fa-solid fa-certificate text-accent-pink"></i> Giấy chứng nhận
             </h3>
             <div class="grid grid-cols-2 gap-4">
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn%201.jpg" alt="gcn 1" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">gcn 1</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn%201.jpg" alt="gcn 1" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">gcn 1</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn2.jpg" alt="gcn2" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">gcn2</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn2.jpg" alt="gcn2" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">gcn2</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn3.jpg" alt="gcn3" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">gcn3</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn3.jpg" alt="gcn3" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">gcn3</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn4.jpg" alt="gcn4" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">gcn4</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn4.jpg" alt="gcn4" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">gcn4</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn5.jpg" alt="gcn5" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">gcn5</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm col-span-2 max-w-sm mx-auto w-full">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/Gi%E1%BA%A5y%20ch%E1%BB%A9ng%20nh%E1%BA%ADn/gcn5.jpg" alt="gcn5" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">gcn5</figcaption>
               </figure>
             </div>
           </div>
@@ -636,20 +979,26 @@
           <!-- Tài lẻ -->
           <div class="parallax-reveal parallax-move" data-parallax-speed="-0.06">
             <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
-              <i class="fa-solid fa-microphone-lines text-sea-light"></i> Tài lẻ (MC, ca hát, múa)
+              <i class="fa-solid fa-microphone-lines text-accent-pink"></i> Tài lẻ (MC, ca hát, múa)
             </h3>
             <div class="grid grid-cols-2 gap-4">
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/T%C3%A0i%20l%E1%BA%BB/Ca%20h%C3%A1t.jpg" alt="Ca hát" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">Ca hát</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/T%C3%A0i%20l%E1%BA%BB/Ca%20h%C3%A1t.jpg" alt="Ca hát" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">Ca hát</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/T%C3%A0i%20l%E1%BA%BB/MC%201.jpg" alt="MC 1" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">MC 1</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/T%C3%A0i%20l%E1%BA%BB/MC%201.jpg" alt="MC 1" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">MC 1</figcaption>
               </figure>
-              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
-                <img src="./assets/T%C3%A0i%20l%E1%BA%BB/MC.jpg" alt="MC" class="w-full aspect-[4/5] object-cover" loading="lazy" />
-                <figcaption class="p-3 text-xs text-sea/70 text-center">MC</figcaption>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm col-span-2 max-w-sm mx-auto w-full">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/T%C3%A0i%20l%E1%BA%BB/MC.jpg" alt="MC" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">MC</figcaption>
               </figure>
             </div>
           </div>
@@ -660,18 +1009,19 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="parallax-section bg-sea text-white/90 py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <footer class="parallax-section bg-gradient-to-br from-sea-dark via-sea to-sea-light text-white/90 py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
     <div class="parallax-bg-layer" data-parallax-bg="0.15" aria-hidden="true">
       <div class="blob w-[300px] h-[300px] bg-sea-light/30 top-[-40%] left-[20%]"></div>
+      <div class="blob w-[200px] h-[200px] bg-accent-pink/25 bottom-[-20%] right-[10%]"></div>
     </div>
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm parallax-content parallax-move" data-parallax-speed="0.05">
       <p class="font-serif text-lg">Trần Đan Đan</p>
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90">
-        <a href="mailto:trandandan.hgi300@gmail.com" class="hover:text-sea-muted transition-colors">trandandan.hgi300@gmail.com</a>
+        <a href="mailto:trandandan.hgi300@gmail.com" class="hover:text-accent-rose transition-colors">trandandan.hgi300@gmail.com</a>
         <span class="hidden sm:inline text-white/40">·</span>
-        <a href="tel:+84787844193" class="hover:text-sea-muted transition-colors">078.784.4193</a>
+        <a href="tel:+84787844193" class="hover:text-accent-rose transition-colors">078.784.4193</a>
         <span class="hidden sm:inline text-white/40">·</span>
-        <a href="https://www.facebook.com/anann.72079" target="_blank" rel="noopener noreferrer" class="hover:text-sea-muted transition-colors" aria-label="Facebook Trần Đan Đan"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/anann.72079" target="_blank" rel="noopener noreferrer" class="hover:text-accent-rose transition-colors" aria-label="Facebook Trần Đan Đan"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
       <p class="text-center sm:text-right">&copy; <span id="year"></span> Trần Đan Đan</p>
       <a href="#hero" class="hover:text-sea-muted transition-colors sm:ml-2" aria-label="Lên đầu trang">
@@ -679,6 +1029,42 @@
       </a>
     </div>
   </footer>
+
+  <!-- Portfolio gallery modal -->
+  <div id="portfolio-gallery-modal" class="portfolio-modal" aria-hidden="true" role="dialog" aria-labelledby="portfolio-modal-title" aria-modal="true">
+    <div class="portfolio-modal-backdrop" data-close-portfolio-modal tabindex="-1"></div>
+    <div class="portfolio-modal-panel">
+      <div class="portfolio-modal-header">
+        <div>
+          <p class="text-xs uppercase tracking-wider text-accent-pink font-semibold mb-1">Tài nguyên dự án</p>
+          <h2 id="portfolio-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-sea leading-snug"></h2>
+          <p id="portfolio-modal-folder" class="text-xs text-sea/60 mt-1 font-mono truncate max-w-[min(100%,28rem)]"></p>
+        </div>
+        <button type="button" id="portfolio-modal-close" class="shrink-0 w-10 h-10 rounded-full border border-sea-muted/40 text-sea hover:bg-accent-rose/20 hover:text-accent-red transition-colors" aria-label="Đóng album">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="portfolio-modal-body">
+        <p id="portfolio-modal-count" class="text-sm text-sea/70 mb-3"></p>
+        <div id="portfolio-modal-grid" class="portfolio-modal-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen lightbox (within album) -->
+  <div id="portfolio-lightbox" class="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button type="button" class="portfolio-lightbox-close" id="portfolio-lightbox-close" aria-label="Đóng ảnh phóng to">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button type="button" class="portfolio-lightbox-nav prev" id="portfolio-lightbox-prev" aria-label="Ảnh trước">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <img id="portfolio-lightbox-img" src="" alt="" />
+    <button type="button" class="portfolio-lightbox-nav next" id="portfolio-lightbox-next" aria-label="Ảnh sau">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <p id="portfolio-lightbox-caption" class="portfolio-lightbox-caption"></p>
+  </div>
 
   <script>
     /* ----- Parallax engine (scroll-based) ----- */
@@ -865,6 +1251,167 @@
           }
         });
       });
+    });
+
+    /* ----- Portfolio project galleries ----- */
+    const portfolioGalleryModal = document.getElementById('portfolio-gallery-modal');
+    const portfolioModalTitle = document.getElementById('portfolio-modal-title');
+    const portfolioModalFolder = document.getElementById('portfolio-modal-folder');
+    const portfolioModalCount = document.getElementById('portfolio-modal-count');
+    const portfolioModalGrid = document.getElementById('portfolio-modal-grid');
+    const portfolioModalClose = document.getElementById('portfolio-modal-close');
+    const portfolioLightbox = document.getElementById('portfolio-lightbox');
+    const portfolioLightboxImg = document.getElementById('portfolio-lightbox-img');
+    const portfolioLightboxCaption = document.getElementById('portfolio-lightbox-caption');
+    const portfolioLightboxClose = document.getElementById('portfolio-lightbox-close');
+    const portfolioLightboxPrev = document.getElementById('portfolio-lightbox-prev');
+    const portfolioLightboxNext = document.getElementById('portfolio-lightbox-next');
+
+    let portfolioGalleries = {};
+    let activeGalleryImages = [];
+    let lightboxIndex = 0;
+    let lastFocusBeforeModal = null;
+
+    function applyGalleryBadges() {
+      document.querySelectorAll('.portfolio-card-wrap[data-gallery-id]').forEach((wrap) => {
+        const id = wrap.getAttribute('data-gallery-id');
+        const gallery = portfolioGalleries[id];
+        const count = gallery ? gallery.images.length : 0;
+        wrap.querySelectorAll('[data-gallery-count]').forEach((badge) => {
+          if (count > 0) {
+            badge.textContent = count + ' ảnh';
+            badge.removeAttribute('aria-hidden');
+          } else {
+            badge.textContent = '';
+            badge.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+    }
+
+    function openPortfolioGallery(galleryId, title) {
+      const gallery = portfolioGalleries[galleryId];
+      if (!gallery || !gallery.images.length) return;
+
+      lastFocusBeforeModal = document.activeElement;
+      activeGalleryImages = gallery.images;
+
+      portfolioModalTitle.textContent = title || gallery.folder;
+      portfolioModalFolder.textContent = 'assets/' + gallery.folder;
+      portfolioModalCount.textContent =
+        gallery.images.length + ' ảnh trong thư mục — nhấn từng ảnh để xem lớn.';
+
+      portfolioModalGrid.innerHTML = gallery.images
+        .map(
+          (img, index) =>
+            '<button type="button" class="portfolio-modal-thumb" data-lightbox-index="' +
+            index +
+            '" aria-label="Xem ' +
+            img.alt.replace(/"/g, '&quot;') +
+            '">' +
+            '<img src="' +
+            img.src +
+            '" alt="' +
+            img.alt.replace(/"/g, '&quot;') +
+            '" loading="lazy" />' +
+            '</button>'
+        )
+        .join('');
+
+      portfolioGalleryModal.classList.add('is-open');
+      portfolioGalleryModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('portfolio-modal-open');
+      portfolioModalClose.focus();
+    }
+
+    function closePortfolioGallery() {
+      portfolioGalleryModal.classList.remove('is-open');
+      portfolioGalleryModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('portfolio-modal-open');
+      closePortfolioLightbox(false);
+      if (lastFocusBeforeModal && typeof lastFocusBeforeModal.focus === 'function') {
+        lastFocusBeforeModal.focus();
+      }
+    }
+
+    function openPortfolioLightbox(index) {
+      if (!activeGalleryImages.length) return;
+      lightboxIndex = (index + activeGalleryImages.length) % activeGalleryImages.length;
+      const item = activeGalleryImages[lightboxIndex];
+      portfolioLightboxImg.src = item.src;
+      portfolioLightboxImg.alt = item.alt;
+      portfolioLightboxCaption.textContent =
+        item.alt + ' (' + (lightboxIndex + 1) + '/' + activeGalleryImages.length + ')';
+      portfolioLightbox.classList.add('is-open');
+      portfolioLightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closePortfolioLightbox(restoreFocus = true) {
+      portfolioLightbox.classList.remove('is-open');
+      portfolioLightbox.setAttribute('aria-hidden', 'true');
+      portfolioLightboxImg.removeAttribute('src');
+      if (restoreFocus && portfolioGalleryModal.classList.contains('is-open')) {
+        portfolioModalClose.focus();
+      }
+    }
+
+    function stepLightbox(delta) {
+      openPortfolioLightbox(lightboxIndex + delta);
+    }
+
+    fetch('./assets/portfolio-galleries.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then((data) => {
+        portfolioGalleries = data.galleries || {};
+        applyGalleryBadges();
+      })
+      .catch((err) => {
+        console.warn('Không tải được portfolio-galleries.json', err);
+      });
+
+    document.getElementById('portfolio-grid').addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-open-gallery]');
+      if (!trigger) return;
+      const wrap = trigger.closest('.portfolio-card-wrap');
+      if (!wrap) return;
+      const galleryId = wrap.getAttribute('data-gallery-id');
+      const titleEl = wrap.querySelector('h3');
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      openPortfolioGallery(galleryId, title);
+    });
+
+    portfolioModalGrid.addEventListener('click', (event) => {
+      const thumb = event.target.closest('[data-lightbox-index]');
+      if (!thumb) return;
+      openPortfolioLightbox(parseInt(thumb.getAttribute('data-lightbox-index'), 10));
+    });
+
+    portfolioModalClose.addEventListener('click', closePortfolioGallery);
+    portfolioGalleryModal.querySelectorAll('[data-close-portfolio-modal]').forEach((el) => {
+      el.addEventListener('click', closePortfolioGallery);
+    });
+
+    portfolioLightboxClose.addEventListener('click', () => closePortfolioLightbox());
+    portfolioLightboxPrev.addEventListener('click', () => stepLightbox(-1));
+    portfolioLightboxNext.addEventListener('click', () => stepLightbox(1));
+
+    portfolioLightbox.addEventListener('click', (event) => {
+      if (event.target === portfolioLightbox) closePortfolioLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (portfolioLightbox.classList.contains('is-open')) {
+        if (event.key === 'Escape') closePortfolioLightbox();
+        if (event.key === 'ArrowLeft') stepLightbox(-1);
+        if (event.key === 'ArrowRight') stepLightbox(1);
+        return;
+      }
+      if (portfolioGalleryModal.classList.contains('is-open') && event.key === 'Escape') {
+        closePortfolioGallery();
+      }
     });
 
     /* ----- Header shadow on scroll ----- */
