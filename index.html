@@ -84,6 +84,25 @@
       color: #fff;
       text-shadow: 0 1px 14px rgba(30, 42, 58, 0.18);
     }
+    .heading-emphasis {
+      color: #1e2a3a;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+    .heading-hero-role {
+      color: #1e2a3a;
+      font-weight: 700;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+    .heading-hero-role span {
+      color: #c8465c;
+      font-weight: 800;
+    }
+    .site-logo-text {
+      color: #1e2a3a;
+      font-weight: 800;
+    }
     .on-brand-subtext {
       color: rgba(255, 255, 255, 0.93);
     }
@@ -500,6 +519,7 @@
 
     .softwares-panel {
       padding: 1.5rem 1.25rem;
+      width: 100%;
     }
     .softwares-panel.surface-card {
       background: rgba(255, 255, 255, 0.96);
@@ -510,10 +530,23 @@
       }
     }
     .softwares-title {
-      font-family: 'Caveat', cursive;
-      font-size: 2.75rem;
-      line-height: 1;
-      color: #5e8bbf;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      line-height: 1.3;
+      font-weight: 800;
+      color: #1e2a3a;
+      margin-bottom: 0.35rem;
+    }
+    .softwares-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .softwares-tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
     }
     .softwares-panel-intro {
       color: rgba(42, 59, 82, 0.78);
@@ -529,10 +562,12 @@
       border-radius: 0.75rem;
       padding: 0.65rem 0.85rem;
       box-shadow: 0 1px 4px rgba(30, 42, 58, 0.05);
+      width: 100%;
+      min-height: 3.65rem;
     }
     .software-icon {
-      width: 2.85rem;
-      height: 2.85rem;
+      width: 2.75rem;
+      height: 2.75rem;
       flex-shrink: 0;
       border-radius: 0.5rem;
       display: flex;
@@ -675,11 +710,11 @@
   <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md shadow-sm transition-shadow border-b border-white/50">
     <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Điều hướng chính">
       <div class="flex items-center justify-between h-16 md:h-20">
-        <a href="#hero" class="font-serif text-xl md:text-2xl font-semibold text-sea tracking-tight">
+        <a href="#hero" class="font-serif text-xl md:text-2xl site-logo-text tracking-tight">
           Trần Đan Đan
         </a>
 
-        <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <ul class="hidden md:flex items-center gap-8 text-sm font-semibold">
           <li><a href="#hero" class="nav-link py-1" data-section="hero">Trang chủ</a></li>
           <li><a href="#about" class="nav-link py-1" data-section="about">Giới thiệu</a></li>
           <li><a href="#portfolio" class="nav-link py-1" data-section="portfolio">Dự án</a></li>
@@ -723,11 +758,11 @@
           <p class="on-brand-subtext-muted font-medium tracking-widest uppercase text-xs sm:text-sm mb-4">
             Portfolio · Truyền thông & Sáng tạo
           </p>
-          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight on-brand-heading mb-6">
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight heading-emphasis mb-6">
             Trần Đan Đan
           </h1>
-          <p class="text-lg sm:text-xl on-brand-subtext font-medium mb-4">
-            Chuyên viên Truyền thông nội bộ &amp; Event <span class="text-white font-semibold">| Cử nhân Quan hệ công chúng</span>
+          <p class="text-lg sm:text-xl heading-hero-role mb-4">
+            Chuyên viên Truyền thông nội bộ &amp; Event <span>| Cử nhân Quan hệ công chúng</span>
           </p>
           <p class="text-base sm:text-lg on-brand-subtext leading-relaxed max-w-xl mb-8">
             Một Gen Z đam mê kết hợp Internal Communication – Event – Social để tối ưu nguồn lực, lan tỏa thông điệp và tạo ra những trải nghiệm văn hóa doanh nghiệp đáng nhớ.
@@ -763,14 +798,14 @@
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-10 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-5">Về tôi</h2>
+          <h2 class="font-serif type-section-title heading-emphasis mb-5">Về tôi</h2>
           <p class="type-section-lead on-brand-subtext max-w-3xl mx-auto mb-4">
             Tôi tin rằng truyền thông nội bộ không chỉ là truyền tải thông tin, mà còn là nghệ thuật kết nối con người, xây dựng văn hóa và gia tăng sự gắn kết. Với nền tảng Quản trị truyền thông doanh nghiệp tại HUTECH, tôi luôn hướng đến việc tạo ra những hoạt động vừa sáng tạo, vừa mang lại giá trị thực tế.
           </p>
           <p class="type-section-tagline on-brand-subtext-muted max-w-2xl mx-auto mb-6">
             Kết nối con người, xây dựng văn hóa và tạo trải nghiệm truyền thông nội bộ có giá trị thực tế.
           </p>
-          <h3 class="font-serif type-block-title font-semibold on-brand-heading">Giới thiệu bản thân</h3>
+          <h3 class="font-serif type-block-title heading-emphasis">Giới thiệu bản thân</h3>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -812,10 +847,10 @@
             </div>
 
             <!-- Công cụ — thứ tự: Gemini, ChatGPT, Excel, Word, Canva -->
-            <div class="parallax-reveal parallax-move softwares-panel surface-card max-w-3xl" data-parallax-speed="-0.05">
-              <h4 class="softwares-title mb-2">Công cụ</h4>
-              <p class="softwares-panel-intro mb-6 max-w-xl">Thành thạo công cụ AI và bộ Office theo mục Kỹ năng trên CV.</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="parallax-reveal parallax-move softwares-panel surface-card w-full" data-parallax-speed="-0.05">
+              <h4 class="softwares-title">Công cụ</h4>
+              <p class="softwares-panel-intro mb-5">Thành thạo công cụ AI và bộ Office theo mục Kỹ năng trên CV.</p>
+              <div class="softwares-tools-grid">
                 <div class="software-skill-row">
                   <div class="software-icon" title="Google Gemini">
                     <img src="./assets/skills-icons/gemini.png" alt="" width="40" height="40" loading="lazy" />
@@ -860,7 +895,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="software-skill-row sm:col-span-2">
+                <div class="software-skill-row">
                   <div class="software-icon" title="Canva">
                     <img src="./assets/skills-icons/canva.png" alt="" width="40" height="40" loading="lazy" />
                   </div>
@@ -876,7 +911,7 @@
 
             <!-- Kỹ năng (nội dung theo CV) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
-              <div class="max-w-3xl surface-card-beige p-5 sm:p-6">
+              <div class="w-full surface-card-beige p-5 sm:p-6">
                 <div class="skills-cv-header">Kỹ năng</div>
                 <div class="grid md:grid-cols-2 gap-x-8 gap-y-1">
                   <ul class="skills-cv-list">
@@ -913,7 +948,7 @@
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.1">
-          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-4">Portfolio</h2>
+          <h2 class="font-serif type-section-title heading-emphasis mb-4">Portfolio</h2>
           <p class="type-section-lead on-brand-subtext max-w-2xl mx-auto">
             Tổng hợp các dự án Event, Content và Quay chụp trong hành trình truyền thông nội bộ, sự kiện và sản xuất media.
             <span class="block mt-2 type-caption on-brand-subtext-muted">Nhấn vào ảnh hoặc <strong class="font-medium text-white">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
@@ -1115,7 +1150,7 @@
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
+          <h2 class="font-serif type-section-title heading-emphasis mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
           <p class="type-section-tagline on-brand-subtext-muted max-w-2xl mx-auto">
             Giấy chứng nhận và tài lẻ (MC, ca hát, múa) từ bộ tài nguyên <code class="text-xs bg-white/90 text-sea px-1.5 py-0.5 rounded">assets/</code>.
           </p>
@@ -1163,7 +1198,7 @@
 
           <!-- Tài lẻ -->
           <div class="parallax-reveal parallax-move surface-card p-5 sm:p-6" data-parallax-speed="-0.06">
-            <h3 class="font-serif type-block-title font-semibold text-sea mb-6 flex items-center gap-2">
+            <h3 class="font-serif type-block-title font-extrabold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-microphone-lines text-accent-pink"></i> Tài lẻ (MC, ca hát, múa)
             </h3>
             <div class="grid grid-cols-2 gap-4">
@@ -1179,11 +1214,17 @@
                 </div>
                 <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">MC 1</figcaption>
               </figure>
-              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm col-span-2 max-w-sm mx-auto w-full">
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
                 <div class="cert-gallery-frame">
                   <img src="./assets/T%C3%A0i%20l%E1%BA%BB/MC.jpg" alt="MC" class="cert-gallery-img" loading="lazy" />
                 </div>
                 <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">MC</figcaption>
+              </figure>
+              <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div class="cert-gallery-frame">
+                  <img src="./assets/T%C3%A0i%20l%E1%BA%BB/Nh%E1%BA%A3y%2C%20m%C3%BAa.jpg" alt="Nhảy, múa" class="cert-gallery-img" loading="lazy" />
+                </div>
+                <figcaption class="p-3 text-xs text-sea/70 text-center border-t border-sea-muted/20 bg-white/40">Nhảy, múa</figcaption>
               </figure>
             </div>
           </div>
