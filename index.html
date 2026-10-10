@@ -166,9 +166,17 @@
       height: 2.75rem;
       flex-shrink: 0;
       border-radius: 0.375rem;
-      object-fit: contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: #fff;
       box-shadow: 0 1px 3px rgba(29, 53, 87, 0.12);
+      padding: 0.35rem;
+    }
+    .software-icon svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .software-bar-track {
       flex: 1;
@@ -212,7 +220,6 @@
           <li><a href="#hero" class="nav-link py-1" data-section="hero">Trang chủ</a></li>
           <li><a href="#about" class="nav-link py-1" data-section="about">Giới thiệu</a></li>
           <li><a href="#portfolio" class="nav-link py-1" data-section="portfolio">Dự án</a></li>
-          <li><a href="#contact" class="nav-link py-1" data-section="contact">Liên hệ</a></li>
         </ul>
 
         <a href="#portfolio" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sea-light text-white text-sm font-medium hover:bg-sea transition-colors">
@@ -231,7 +238,6 @@
           <li><a href="#hero" class="block py-2 mobile-nav-link">Trang chủ</a></li>
           <li><a href="#about" class="block py-2 mobile-nav-link">Giới thiệu</a></li>
           <li><a href="#portfolio" class="block py-2 mobile-nav-link">Dự án</a></li>
-          <li><a href="#contact" class="block py-2 mobile-nav-link">Liên hệ</a></li>
         </ul>
       </div>
     </nav>
@@ -265,8 +271,8 @@
               Khám phá Dự án
               <i class="fa-solid fa-chevron-down text-sm"></i>
             </a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-sea-light text-sea-light font-medium hover:bg-sea-light hover:text-white transition-all">
-              Liên hệ
+            <a href="mailto:trandandan.hgi300@gmail.com" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-sea-light text-sea-light font-medium hover:bg-sea-light hover:text-white transition-all">
+              Email
             </a>
           </div>
         </div>
@@ -342,44 +348,48 @@
               </div>
             </div>
 
-            <!-- Softwares (icon + progress bar) -->
+            <!-- Công cụ (theo CV — icon + thanh tiến độ) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="-0.05">
-              <h4 class="softwares-title mb-8">Softwares</h4>
+              <h4 class="softwares-title mb-8">Công cụ</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7 max-w-4xl">
                 <div class="flex items-center gap-3">
-                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="Adobe Illustrator 80%">
+                  <div class="software-icon" title="CapCut">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000" d="M9.5 3 6 8.5v7L9.5 21h5l3.5-5.5v-7L14.5 3h-5zm1.2 2h2.6l2.6 4.1v7.8L13.3 21h-2.6l-2.6-4.1V8.1L10.7 5z"/><path fill="#00F2EA" d="M12 7.5 9.8 11h4.4L12 7.5z"/><path fill="#FF0050" d="M12 16.5 14.2 13H9.8l2.2 3.5z"/></svg>
+                  </div>
+                  <div class="software-bar-track" aria-label="CapCut — quay dựng, 88%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="88" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon" title="Canva">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#00C4CC"/><path fill="#fff" d="M8.2 8.5h2.2c1.8 0 3 1 3 2.6 0 1.1-.6 2-1.6 2.4 1.2.3 2 1.3 2 2.7 0 2-1.6 3.3-4 3.3H8.2V8.5zm2 3.6h.4c.8 0 1.2-.4 1.2-1s-.4-1-1.2-1h-.4v2zm0 3.8h.5c1 0 1.5-.4 1.5-1.1 0-.7-.5-1.1-1.5-1.1h-.5v2.2z"/></svg>
+                  </div>
+                  <div class="software-bar-track" aria-label="Canva — thiết kế, 85%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon" title="ChatGPT">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#10A37F" d="M12 2a7 7 0 0 0-6.2 3.7 5.5 5.5 0 0 0 .4 6.5 7 7 0 0 0 11.6 0 5.5 5.5 0 0 0 .4-6.5A7 7 0 0 0 12 2zm0 2.2c1.4 0 2.6.5 3.6 1.3l-1.5 2.6a3.8 3.8 0 0 0-4.2 0L8.4 5.5c1-.8 2.2-1.3 3.6-1.3zm-5 4.3 2.6 1.5a3.8 3.8 0 0 0 0 4.2L7 15.7a5.2 5.2 0 0 1-.3-7.2zm10 0a5.2 5.2 0 0 1-.3 7.2l-2.6-1.5a3.8 3.8 0 0 0 0-4.2l2.6-1.5c.2.4.3.8.3 1.2zm-5 1.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"/></svg>
+                  </div>
+                  <div class="software-bar-track" aria-label="ChatGPT, 85%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon" title="Google Gemini">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M12 3 4 19h16L12 3z"/><path fill="#EA4335" d="M12 3 8 11h8l-4-8z"/><path fill="#FBBC04" d="M8 11 4 19h8l-4-8z"/><path fill="#34A853" d="M16 11 12 19h8l-4-8z"/></svg>
+                  </div>
+                  <div class="software-bar-track" aria-label="Google Gemini, 82%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="82" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon" title="Microsoft Copilot">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0078D4" d="M4 4h8v8H4V4zm8 0h8v8h-8V4zM4 12h8v8H4v-8zm10 2.5 3 5.5h-6l3-5.5z" opacity=".9"/><path fill="#50E6FF" d="M14 12h6v6h-6v-6z"/></svg>
+                  </div>
+                  <div class="software-bar-track" aria-label="Microsoft Copilot, 80%">
                     <div class="software-bar-fill skill-bar-fill" data-width="80" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="Adobe Photoshop 75%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="75" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Adobe Premiere Pro" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="Adobe Premiere Pro 50%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="50" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/indesign/indesign-plain.svg" alt="Adobe InDesign" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="Adobe InDesign 40%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="40" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img class="software-icon p-1.5" src="https://cdn.simpleicons.org/capcut/000000" alt="CapCut" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="CapCut 65%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="65" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-plain.svg" alt="Figma" width="44" height="44" loading="lazy" />
-                  <div class="software-bar-track" aria-label="Figma 55%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="55" style="width: 0;"></div>
                   </div>
                 </div>
               </div>
@@ -551,110 +561,6 @@
       </div>
     </section>
 
-    <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact" class="parallax-section py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
-      <div class="parallax-bg-layer" data-parallax-bg="0.2" aria-hidden="true">
-        <div class="blob w-[380px] h-[380px] bg-sea-muted/35 top-[5%] right-[-5%]"></div>
-        <div class="blob w-[260px] h-[260px] bg-beige-alt bottom-[15%] left-[5%]"></div>
-      </div>
-      <div class="max-w-6xl mx-auto parallax-content">
-        <div class="text-center mb-14 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Liên hệ</h2>
-          <p class="text-sea/70 max-w-2xl mx-auto">
-            Hãy liên hệ nếu bạn quan tâm đến hợp tác truyền thông nội bộ, sự kiện hoặc cơ hội nghề nghiệp.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <!-- Contact info -->
-          <div class="space-y-8 parallax-reveal parallax-move" data-parallax-speed="0.12">
-            <div>
-              <h3 class="font-serif text-xl font-semibold text-sea mb-6">Thông tin liên lạc</h3>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-4">
-                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
-                    <i class="fa-solid fa-envelope"></i>
-                  </span>
-                  <div>
-                    <p class="text-sm text-sea/60">Email</p>
-                    <a href="mailto:trandandan.hgi300@gmail.com" class="text-sea font-medium hover:text-sea-light transition-colors">trandandan.hgi300@gmail.com</a>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
-                    <i class="fa-solid fa-phone"></i>
-                  </span>
-                  <div>
-                    <p class="text-sm text-sea/60">Số điện thoại</p>
-                    <a href="tel:+84787844193" class="text-sea font-medium hover:text-sea-light transition-colors">078.784.4193</a>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
-                    <i class="fa-solid fa-map-pin"></i>
-                  </span>
-                  <div>
-                    <p class="text-sm text-sea/60">Địa chỉ</p>
-                    <p class="text-sea font-medium">TP. Hồ Chí Minh, Việt Nam</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="text-sm text-sea/60 mb-4">Mạng xã hội</p>
-              <div class="flex gap-4">
-                <a href="https://www.facebook.com/anann.72079" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="Facebook Trần Đan Đan">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="Instagram">
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="LinkedIn">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="TikTok">
-                  <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="YouTube">
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact form -->
-          <div class="parallax-reveal parallax-move" data-parallax-speed="-0.1">
-            <form id="contact-form" class="bg-beige rounded-2xl p-6 sm:p-8 border border-beige-alt shadow-sm" action="#" method="post">
-              <div class="space-y-5">
-                <div>
-                  <label for="name" class="block text-sm font-medium text-sea mb-1.5">Họ và tên</label>
-                  <input type="text" id="name" name="name" placeholder="[Người gửi điền tên]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium text-sea mb-1.5">Email của bạn</label>
-                  <input type="email" id="email" name="email" placeholder="email@example.com" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
-                </div>
-                <div>
-                  <label for="subject" class="block text-sm font-medium text-sea mb-1.5">Chủ đề</label>
-                  <input type="text" id="subject" name="subject" placeholder="[Chủ đề tin nhắn]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
-                </div>
-                <div>
-                  <label for="message" class="block text-sm font-medium text-sea mb-1.5">Nội dung</label>
-                  <textarea id="message" name="message" rows="5" placeholder="[Điền nội dung tin nhắn...]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50 resize-y"></textarea>
-                </div>
-                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-sea-light text-white font-medium hover:bg-sea transition-colors inline-flex items-center justify-center gap-2">
-                  Gửi tin nhắn
-                  <i class="fa-solid fa-paper-plane text-sm"></i>
-                </button>
-                <p id="form-notice" class="text-sm text-sea/60 hidden" role="status"></p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ========== FOOTER ========== -->
@@ -664,8 +570,15 @@
     </div>
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm parallax-content parallax-move" data-parallax-speed="0.05">
       <p class="font-serif text-lg">Trần Đan Đan</p>
-      <p>&copy; <span id="year"></span> Trần Đan Đan. Internal Communication · Event · Social.</p>
-      <a href="#hero" class="hover:text-sea-muted transition-colors" aria-label="Lên đầu trang">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90">
+        <a href="mailto:trandandan.hgi300@gmail.com" class="hover:text-sea-muted transition-colors">trandandan.hgi300@gmail.com</a>
+        <span class="hidden sm:inline text-white/40">·</span>
+        <a href="tel:+84787844193" class="hover:text-sea-muted transition-colors">078.784.4193</a>
+        <span class="hidden sm:inline text-white/40">·</span>
+        <a href="https://www.facebook.com/anann.72079" target="_blank" rel="noopener noreferrer" class="hover:text-sea-muted transition-colors" aria-label="Facebook Trần Đan Đan"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+      <p class="text-center sm:text-right">&copy; <span id="year"></span> Trần Đan Đan</p>
+      <a href="#hero" class="hover:text-sea-muted transition-colors sm:ml-2" aria-label="Lên đầu trang">
         <i class="fa-solid fa-arrow-up"></i>
       </a>
     </div>
@@ -856,14 +769,6 @@
           }
         });
       });
-    });
-
-    /* ----- Contact form (placeholder — no backend) ----- */
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const notice = document.getElementById('form-notice');
-      notice.textContent = '[Template] Form chưa kết nối backend — cấu hình email/API sau khi triển khai.';
-      notice.classList.remove('hidden');
     });
 
     /* ----- Header shadow on scroll ----- */
