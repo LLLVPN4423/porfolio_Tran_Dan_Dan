@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZZ+RO9UYanfEGgQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -152,6 +152,35 @@
     }
 
     .skill-bar-fill {
+      transition: width 1.2s ease-out;
+    }
+
+    .softwares-title {
+      font-family: 'Caveat', cursive;
+      font-size: 2.75rem;
+      line-height: 1;
+      color: #4a6278;
+    }
+    .software-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      border-radius: 0.375rem;
+      object-fit: contain;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(29, 53, 87, 0.12);
+    }
+    .software-bar-track {
+      flex: 1;
+      height: 0.45rem;
+      border-radius: 9999px;
+      background: #dce6ee;
+      overflow: hidden;
+    }
+    .software-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: #4a6278;
       transition: width 1.2s ease-out;
     }
 
@@ -313,25 +342,45 @@
               </div>
             </div>
 
-            <!-- Hard skills progress -->
+            <!-- Softwares (icon + progress bar) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="-0.05">
-              <h4 class="font-serif text-lg font-semibold text-sea mb-5">Kỹ năng chuyên môn (Hard Skills)</h4>
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between text-sm mb-1"><span>Lên ý tưởng &amp; Viết kịch bản</span><span class="text-sea-light">90%</span></div>
-                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="90" style="width: 0;"></div></div>
+              <h4 class="softwares-title mb-8">Softwares</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7 max-w-4xl">
+                <div class="flex items-center gap-3">
+                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="Adobe Illustrator 80%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="80" style="width: 0;"></div>
+                  </div>
                 </div>
-                <div>
-                  <div class="flex justify-between text-sm mb-1"><span>Quản lý &amp; Điều phối sự kiện</span><span class="text-sea-light">92%</span></div>
-                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="92" style="width: 0;"></div></div>
+                <div class="flex items-center gap-3">
+                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="Adobe Photoshop 75%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="75" style="width: 0;"></div>
+                  </div>
                 </div>
-                <div>
-                  <div class="flex justify-between text-sm mb-1"><span>Quay dựng (CapCut) &amp; Thiết kế (Canva)</span><span class="text-sea-light">88%</span></div>
-                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="88" style="width: 0;"></div></div>
+                <div class="flex items-center gap-3">
+                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Adobe Premiere Pro" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="Adobe Premiere Pro 50%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="50" style="width: 0;"></div>
+                  </div>
                 </div>
-                <div>
-                  <div class="flex justify-between text-sm mb-1"><span>Ứng dụng AI (ChatGPT, Gemini, Copilot)</span><span class="text-sea-light">85%</span></div>
-                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="85" style="width: 0;"></div></div>
+                <div class="flex items-center gap-3">
+                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/indesign/indesign-plain.svg" alt="Adobe InDesign" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="Adobe InDesign 40%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="40" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img class="software-icon p-1.5" src="https://cdn.simpleicons.org/capcut/000000" alt="CapCut" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="CapCut 65%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="65" style="width: 0;"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img class="software-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-plain.svg" alt="Figma" width="44" height="44" loading="lazy" />
+                  <div class="software-bar-track" aria-label="Figma 55%">
+                    <div class="software-bar-fill skill-bar-fill" data-width="55" style="width: 0;"></div>
+                  </div>
                 </div>
               </div>
             </div>
