@@ -679,6 +679,80 @@
       object-position: center;
     }
 
+    .taile-gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+    @media (min-width: 768px) {
+      .taile-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+      }
+    }
+    .taile-gallery .cert-gallery-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .taile-gallery .cert-gallery-frame {
+      flex: 1;
+      min-height: 0;
+      aspect-ratio: 3 / 4;
+      max-height: 11.5rem;
+      padding: 0.4rem;
+    }
+    .taile-gallery .cert-gallery-img {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 0.35rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+    }
+    .footer-contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 0.75rem;
+    }
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #fff;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .footer-social-link:hover {
+      background: rgba(224, 122, 154, 0.45);
+      color: #fff;
+    }
+    .footer-social-link i {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
     .btn-primary {
       background: linear-gradient(135deg, #5e8bbf 0%, #2a3b52 100%);
     }
@@ -1201,7 +1275,7 @@
             <h3 class="font-serif type-block-title font-extrabold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-microphone-lines text-accent-pink"></i> Tài lẻ (MC, ca hát, múa)
             </h3>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="taile-gallery grid gap-3 sm:gap-4">
               <figure class="cert-gallery-card rounded-xl overflow-hidden shadow-sm">
                 <div class="cert-gallery-frame">
                   <img src="./assets/T%C3%A0i%20l%E1%BA%BB/Ca%20h%C3%A1t.jpg" alt="Ca hát" class="cert-gallery-img" loading="lazy" />
@@ -1240,23 +1314,26 @@
       <div class="blob w-[300px] h-[300px] bg-sea-light/30 top-[-40%] left-[20%]"></div>
       <div class="blob w-[200px] h-[200px] bg-accent-pink/25 bottom-[-20%] right-[10%]"></div>
     </div>
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm parallax-content parallax-move" data-parallax-speed="0.05">
-      <p class="font-serif text-lg">Trần Đan Đan</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90">
+    <div class="max-w-6xl mx-auto footer-inner text-sm parallax-content parallax-move" data-parallax-speed="0.05">
+      <p class="font-serif text-lg text-white shrink-0">Trần Đan Đan</p>
+      <div class="footer-contact-row text-white/90">
         <a href="mailto:trandandan.hgi300@gmail.com" class="hover:text-accent-rose transition-colors">trandandan.hgi300@gmail.com</a>
-        <span class="hidden sm:inline text-white/40">·</span>
+        <span class="text-white/35" aria-hidden="true">·</span>
         <a href="tel:+84787844193" class="hover:text-accent-rose transition-colors">078.784.4193</a>
-        <span class="hidden sm:inline text-white/40">·</span>
-        <span class="hidden sm:inline text-white/40">·</span>
-        <span class="inline-flex items-center gap-3">
-          <a href="https://www.facebook.com/anann.720798?locale=vi_VN" target="_blank" rel="noopener noreferrer" class="hover:text-accent-rose transition-colors text-base" aria-label="Facebook Trần Đan Đan"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/cleira_p23/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-rose transition-colors text-base" aria-label="Instagram Trần Đan Đan"><i class="fa-brands fa-instagram"></i></a>
-        </span>
+        <span class="text-white/35" aria-hidden="true">·</span>
+        <a href="https://www.facebook.com/anann.720798?locale=vi_VN" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/cleira_p23/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+        </a>
       </div>
-      <p class="text-center sm:text-right">&copy; <span id="year"></span> Trần Đan Đan</p>
-      <a href="#hero" class="hover:text-sea-muted transition-colors sm:ml-2" aria-label="Lên đầu trang">
-        <i class="fa-solid fa-arrow-up"></i>
-      </a>
+      <div class="flex items-center gap-3 text-white/90 shrink-0">
+        <p class="text-center sm:text-right">&copy; <span id="year"></span> Trần Đan Đan</p>
+        <a href="#hero" class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-white/15 hover:bg-accent-rose/40 transition-colors" aria-label="Lên đầu trang">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
     </div>
   </footer>
 
