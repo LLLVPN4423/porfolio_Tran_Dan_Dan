@@ -49,13 +49,16 @@
 
   <style>
     html {
-      overflow-x: hidden;
+      overflow-x: clip;
     }
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: #2A3B52;
-      overflow-x: hidden;
+      overflow-x: clip;
       background-color: #F2F5F8;
+    }
+    main {
+      overflow-x: clip;
     }
 
     .parallax-section {
@@ -65,7 +68,7 @@
     }
     .parallax-bg-layer {
       position: absolute;
-      inset: -20% -10%;
+      inset: -6% -4%;
       pointer-events: none;
       z-index: 0;
       will-change: transform;
@@ -85,7 +88,7 @@
     }
     .parallax-reveal {
       will-change: transform, opacity;
-      opacity: 0.15;
+      opacity: 0.92;
     }
     .parallax-bg-image {
       position: absolute;
@@ -94,7 +97,7 @@
       background-size: cover;
       background-position: center;
       will-change: transform;
-      transform: scale(1.08);
+      transform: scale(1.02);
     }
     @media (min-width: 768px) {
       .parallax-bg-image.is-fixed {
@@ -442,6 +445,83 @@
       height: 100%;
       object-fit: contain;
     }
+    .software-icon i {
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .software-icon--capcut {
+      background: #0f0f0f;
+      padding: 0.25rem;
+    }
+    .software-icon--canva i {
+      color: #00c4cc;
+      font-size: 1.65rem;
+    }
+    .software-icon--word i {
+      color: #2b579a;
+    }
+    .software-icon--excel i {
+      color: #217346;
+    }
+    .software-icon--openai i {
+      color: #10a37f;
+    }
+    .software-icon--gemini {
+      background: linear-gradient(145deg, #4285f4 0%, #9b72cb 45%, #d96570 100%);
+      padding: 0.3rem;
+    }
+    .software-icon--gemini svg {
+      filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+    }
+    .software-icon--copilot {
+      background: linear-gradient(135deg, #0078d4 0%, #7c3aed 55%, #e07a9a 100%);
+      padding: 0.35rem;
+    }
+    .software-name {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2a3b52;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .skills-cv-header {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #2a3b52;
+      background: linear-gradient(90deg, rgba(240, 164, 184, 0.45) 0%, rgba(224, 122, 154, 0.35) 100%);
+      border: 1px solid rgba(224, 122, 154, 0.35);
+      border-radius: 0.375rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .skills-cv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-cv-list li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: rgba(42, 59, 82, 0.88);
+    }
+    .skills-cv-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #5a7694 0%, #e07a9a 100%);
+    }
     .software-bar-track {
       flex: 1;
       height: 0.45rem;
@@ -581,7 +661,7 @@
 
         <div class="relative parallax-reveal parallax-move" data-parallax-speed="0.18">
           <div class="aspect-[4/5] max-w-md mx-auto lg:ml-auto rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/80 bg-beige-alt parallax-move" data-parallax-speed="0.22">
-            <img src="./assets/%E1%BA%A3nh%20profile/%E1%BA%A3nh%20profile%201.jpg" alt="Trần Đan Đan — ảnh đại diện" class="w-full h-full object-cover" loading="eager" />
+            <img src="./assets/%E1%BA%A3nh%20profile/profile-hero.jpg" alt="Trần Đan Đan — ảnh đại diện" class="w-full h-full object-cover object-top" loading="eager" />
           </div>
           <div class="absolute -bottom-4 -left-4 sm:left-4 bg-white rounded-xl shadow-lg px-5 py-4 max-w-[200px] parallax-move" data-parallax-speed="-0.28">
             <p class="text-2xl font-serif font-bold text-sea">8+</p>
@@ -609,14 +689,14 @@
           <!-- Avatar placeholder -->
           <div class="lg:col-span-4 parallax-reveal parallax-move" data-parallax-speed="0.14">
             <div class="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-beige-alt shadow-lg border border-beige-alt">
-              <img src="./assets/%E1%BA%A3nh%20profile/%E1%BA%A3nh%20profile%201.jpg" alt="Trần Đan Đan — giới thiệu" class="w-full h-full object-cover" loading="lazy" />
+              <img src="./assets/%E1%BA%A3nh%20profile/profile-hero.jpg" alt="Trần Đan Đan — giới thiệu" class="w-full h-full object-cover object-top" loading="lazy" />
             </div>
             <div class="mt-6 flex flex-wrap justify-center gap-3">
               <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
                 <i class="fa-solid fa-location-dot text-sea-light mr-1"></i> TP. Hồ Chí Minh, Việt Nam
               </span>
-              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
-                <i class="fa-solid fa-graduation-cap text-sea-light mr-1"></i> HUTECH · QTTDN (2022–2026)
+              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt text-center max-w-md leading-snug">
+                <i class="fa-solid fa-graduation-cap text-sea-light mr-1"></i> HUTECH · Quản trị truyền thông doanh nghiệp (2022–2026)
               </span>
             </div>
           </div>
@@ -650,62 +730,108 @@
               </div>
             </div>
 
-            <!-- Công cụ (theo CV — icon + thanh tiến độ) -->
+            <!-- Công cụ (theo CV — Canva, CapCut, Word, Excel + AI) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="-0.05">
-              <h4 class="softwares-title mb-8">Công cụ</h4>
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7 max-w-4xl">
+              <h4 class="softwares-title mb-2">Công cụ</h4>
+              <p class="text-sm text-sea/65 mb-6 max-w-xl">Thành thạo máy tính văn phòng và công cụ AI theo mục Kỹ năng trên CV.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 max-w-3xl">
                 <div class="flex items-center gap-3">
-                  <div class="software-icon" title="CapCut">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000" d="M9.5 3 6 8.5v7L9.5 21h5l3.5-5.5v-7L14.5 3h-5zm1.2 2h2.6l2.6 4.1v7.8L13.3 21h-2.6l-2.6-4.1V8.1L10.7 5z"/><path fill="#00F2EA" d="M12 7.5 9.8 11h4.4L12 7.5z"/><path fill="#FF0050" d="M12 16.5 14.2 13H9.8l2.2 3.5z"/></svg>
+                  <div class="software-icon software-icon--capcut" title="CapCut">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#000"/><path fill="#00F2EA" d="M6.5 7.5 10 16.5h1.8L8.3 7.5H6.5zm4.2 0L14.5 16.5H16l-3.3-9H10.7z"/><path fill="#FF0050" d="M14.2 7.5h3.3l-3.3 9h-1.8l3.3-9z"/></svg>
                   </div>
-                  <div class="software-bar-track" aria-label="CapCut — quay dựng, 88%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="88" style="width: 0;"></div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">CapCut</span>
+                    <div class="software-bar-track" aria-label="CapCut — quay dựng, 88%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="88" style="width: 0;"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div class="software-icon" title="Canva">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#00C4CC"/><path fill="#fff" d="M8.2 8.5h2.2c1.8 0 3 1 3 2.6 0 1.1-.6 2-1.6 2.4 1.2.3 2 1.3 2 2.7 0 2-1.6 3.3-4 3.3H8.2V8.5zm2 3.6h.4c.8 0 1.2-.4 1.2-1s-.4-1-1.2-1h-.4v2zm0 3.8h.5c1 0 1.5-.4 1.5-1.1 0-.7-.5-1.1-1.5-1.1h-.5v2.2z"/></svg>
+                  <div class="software-icon software-icon--canva" title="Canva">
+                    <i class="fa-brands fa-canva" aria-hidden="true"></i>
                   </div>
-                  <div class="software-bar-track" aria-label="Canva — thiết kế, 85%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon" title="ChatGPT">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#10A37F" d="M12 2a7 7 0 0 0-6.2 3.7 5.5 5.5 0 0 0 .4 6.5 7 7 0 0 0 11.6 0 5.5 5.5 0 0 0 .4-6.5A7 7 0 0 0 12 2zm0 2.2c1.4 0 2.6.5 3.6 1.3l-1.5 2.6a3.8 3.8 0 0 0-4.2 0L8.4 5.5c1-.8 2.2-1.3 3.6-1.3zm-5 4.3 2.6 1.5a3.8 3.8 0 0 0 0 4.2L7 15.7a5.2 5.2 0 0 1-.3-7.2zm10 0a5.2 5.2 0 0 1-.3 7.2l-2.6-1.5a3.8 3.8 0 0 0 0-4.2l2.6-1.5c.2.4.3.8.3 1.2zm-5 1.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"/></svg>
-                  </div>
-                  <div class="software-bar-track" aria-label="ChatGPT, 85%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Canva</span>
+                    <div class="software-bar-track" aria-label="Canva — thiết kế, 86%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="86" style="width: 0;"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div class="software-icon" title="Google Gemini">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M12 3 4 19h16L12 3z"/><path fill="#EA4335" d="M12 3 8 11h8l-4-8z"/><path fill="#FBBC04" d="M8 11 4 19h8l-4-8z"/><path fill="#34A853" d="M16 11 12 19h8l-4-8z"/></svg>
+                  <div class="software-icon software-icon--word" title="Microsoft Word">
+                    <i class="fa-solid fa-file-word" aria-hidden="true"></i>
                   </div>
-                  <div class="software-bar-track" aria-label="Google Gemini, 82%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="82" style="width: 0;"></div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Word</span>
+                    <div class="software-bar-track" aria-label="Microsoft Word, 85%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div class="software-icon" title="Microsoft Copilot">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0078D4" d="M4 4h8v8H4V4zm8 0h8v8h-8V4zM4 12h8v8H4v-8zm10 2.5 3 5.5h-6l3-5.5z" opacity=".9"/><path fill="#50E6FF" d="M14 12h6v6h-6v-6z"/></svg>
+                  <div class="software-icon software-icon--excel" title="Microsoft Excel">
+                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
                   </div>
-                  <div class="software-bar-track" aria-label="Microsoft Copilot, 80%">
-                    <div class="software-bar-fill skill-bar-fill" data-width="80" style="width: 0;"></div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Excel</span>
+                    <div class="software-bar-track" aria-label="Microsoft Excel, 84%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="84" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon software-icon--openai" title="ChatGPT">
+                    <i class="fa-brands fa-openai" aria-hidden="true"></i>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">ChatGPT</span>
+                    <div class="software-bar-track" aria-label="ChatGPT, 85%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="software-icon software-icon--gemini" title="Google Gemini">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 3.5c1.2 2.8 3.7 5.3 6.5 6.5-2.8 1.2-5.3 3.7-6.5 6.5-1.2-2.8-3.7-5.3-6.5-6.5 2.8-1.2 5.3-3.7 6.5-6.5z"/></svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Gemini</span>
+                    <div class="software-bar-track" aria-label="Google Gemini, 82%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="82" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 sm:col-span-2 sm:max-w-[calc(50%-1.25rem)]">
+                  <div class="software-icon software-icon--copilot" title="Microsoft Copilot">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 4.5a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm-6.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm13 0a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/></svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Copilot</span>
+                    <div class="software-bar-track" aria-label="Microsoft Copilot, 80%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="80" style="width: 0;"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Soft skills tags -->
+            <!-- Kỹ năng (nội dung theo CV) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
-              <h4 class="font-serif text-lg font-semibold text-sea mb-4">Kỹ năng mềm (Soft Skills)</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">MC &amp; Dẫn chương trình</span>
-                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Truyền thông nội bộ</span>
-                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Làm việc nhóm</span>
-                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Sáng tạo nội dung</span>
-                <span class="px-4 py-2 rounded-full bg-accent-rose/20 text-sea text-sm border border-accent-pink/25">Giao tiếp đa kênh</span>
+              <div class="max-w-3xl rounded-xl border border-accent-pink/20 bg-white/60 shadow-sm p-5 sm:p-6">
+                <div class="skills-cv-header">Kỹ năng</div>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-1">
+                  <ul class="skills-cv-list">
+                    <li>Kỹ năng quản lí, làm việc nhóm</li>
+                    <li>Kỹ năng giao tiếp, năng động</li>
+                    <li>Kỹ năng giải quyết vấn đề, nhanh nhẹn</li>
+                    <li>Có khả năng sử dụng AI (ChatGPT, Gemini, Copilot)</li>
+                  </ul>
+                  <ul class="skills-cv-list">
+                    <li>Lên ý tưởng, viết kịch bản và sáng tạo</li>
+                    <li>Thành thạo máy tính văn phòng (Canva, CapCut, Word, Excel)</li>
+                    <li>Có khả năng MC, biết hát, nhảy, múa</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1077,7 +1203,11 @@
 
     function revealProgress(el, vh) {
       const rect = el.getBoundingClientRect();
-      return Math.min(1, Math.max(0, (vh * 0.9 - rect.top) / (vh * 0.72)));
+      return Math.min(1, Math.max(0, (vh * 0.82 - rect.top) / (vh * 0.55)));
+    }
+
+    function clampParallaxOffset(value, max) {
+      return Math.max(-max, Math.min(max, value));
     }
 
     function runParallax() {
@@ -1091,12 +1221,12 @@
         const speed = parseFloat(el.dataset.parallaxSpeed) || 0.1;
         const rect = el.getBoundingClientRect();
         const centerOffset = rect.top + rect.height * 0.5 - vh * 0.5;
-        let translateY = centerOffset * speed;
+        let translateY = clampParallaxOffset(centerOffset * speed, 56);
 
         if (el.classList.contains('parallax-reveal')) {
           const progress = revealProgress(el, vh);
-          translateY += (1 - progress) * 42;
-          el.style.opacity = String(0.18 + progress * 0.82);
+          translateY += (1 - progress) * 14;
+          el.style.opacity = String(0.88 + progress * 0.12);
         }
 
         el.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0)`;
@@ -1117,7 +1247,7 @@
         const speed = parseFloat(bg.dataset.parallaxBgScale) || 0.12;
         const offset = scrollY - section.offsetTop;
         const y = offset * speed;
-        bg.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(1.1)`;
+        bg.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(1.03)`;
       });
     }
 
@@ -1162,16 +1292,16 @@
     const navLinks = document.querySelectorAll('.nav-link[data-section]');
 
     function setActiveNav() {
-      const scrollY = window.scrollY + 120;
+      const headerEl = document.getElementById('site-header');
+      const offset = window.scrollY + (headerEl ? headerEl.offsetHeight : 72) + 56;
+      let currentId = sections[0] ? sections[0].getAttribute('id') : '';
       sections.forEach((section) => {
-        const id = section.getAttribute('id');
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        if (scrollY >= top && scrollY < top + height) {
-          navLinks.forEach((link) => {
-            link.classList.toggle('active', link.dataset.section === id);
-          });
+        if (section.offsetTop <= offset) {
+          currentId = section.getAttribute('id');
         }
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.dataset.section === currentId);
       });
     }
     window.addEventListener('scroll', () => {
