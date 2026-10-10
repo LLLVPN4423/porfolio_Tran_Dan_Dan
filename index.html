@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="[Điền mô tả ngắn về portfolio — SEO]" />
+  <title>[Tên của bạn] | Portfolio Truyền thông & Sáng tạo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZZ+RO9UYanfEGgQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sea: {
+              DEFAULT: '#1D3557',
+              light: '#457B9D',
+              muted: '#A8DADC',
+            },
+            beige: {
+              DEFAULT: '#FAF9F6',
+              alt: '#F5EFED',
+            },
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1D3557;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .nav-link.active {
+      color: #457B9D;
+    }
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: #457B9D;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .portfolio-card {
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .portfolio-card.is-hidden {
+      opacity: 0;
+      transform: scale(0.96);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+    .portfolio-card.is-visible {
+      opacity: 1;
+      transform: scale(1);
+      position: relative;
+      visibility: visible;
+    }
+
+    .filter-btn.active {
+      background-color: #1D3557;
+      color: #fff;
+      border-color: #1D3557;
+    }
+
+    .skill-bar-fill {
+      transition: width 1.2s ease-out;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #FAF9F6 0%, #F5EFED 50%, rgba(168, 218, 220, 0.25) 100%);
+    }
+
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    #mobile-menu.open {
+      max-height: 320px;
+    }
+  </style>
+</head>
+<body class="bg-beige text-sea antialiased">
+
+  <!-- ========== HEADER / NAVIGATION ========== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-shadow">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Điều hướng chính">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="#hero" class="font-serif text-xl md:text-2xl font-semibold text-sea tracking-tight">
+          [Tên viết tắt / Monogram]
+        </a>
+
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <li><a href="#hero" class="nav-link py-1" data-section="hero">Trang chủ</a></li>
+          <li><a href="#about" class="nav-link py-1" data-section="about">Giới thiệu</a></li>
+          <li><a href="#portfolio" class="nav-link py-1" data-section="portfolio">Dự án</a></li>
+          <li><a href="#contact" class="nav-link py-1" data-section="contact">Liên hệ</a></li>
+        </ul>
+
+        <a href="#portfolio" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sea-light text-white text-sm font-medium hover:bg-sea transition-colors">
+          Khám phá Dự án
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+
+        <button type="button" id="menu-toggle" class="md:hidden p-2 text-sea" aria-expanded="false" aria-controls="mobile-menu" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-xl" id="menu-icon-open"></i>
+          <i class="fa-solid fa-xmark text-xl hidden" id="menu-icon-close"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden border-t border-beige-alt">
+        <ul class="py-4 space-y-3 text-sm font-medium">
+          <li><a href="#hero" class="block py-2 mobile-nav-link">Trang chủ</a></li>
+          <li><a href="#about" class="block py-2 mobile-nav-link">Giới thiệu</a></li>
+          <li><a href="#portfolio" class="block py-2 mobile-nav-link">Dự án</a></li>
+          <li><a href="#contact" class="block py-2 mobile-nav-link">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="hero-gradient min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div data-aos="fade-up" data-aos-duration="800">
+          <p class="text-sea-light font-medium tracking-widest uppercase text-xs sm:text-sm mb-4">
+            Portfolio · Truyền thông & Sáng tạo
+          </p>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-sea mb-6">
+            [Tên của bạn]
+          </h1>
+          <p class="text-lg sm:text-xl text-sea-light font-medium mb-4">
+            Chuyên ngành: <span class="text-sea">Quan hệ công chúng (Public Relations)</span>
+          </p>
+          <p class="text-base sm:text-lg text-sea/80 leading-relaxed max-w-xl mb-8">
+            [Điền đoạn mô tả ngắn về bản thân — ví dụ: Sinh viên/lập trình viên truyền thông với đam mê sáng tạo nội dung, tổ chức sự kiện và kể chuyện thương hiệu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#portfolio" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-sea-light text-white font-medium hover:bg-sea transition-all hover:shadow-lg">
+              Khám phá Dự án
+              <i class="fa-solid fa-chevron-down text-sm"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-sea-light text-sea-light font-medium hover:bg-sea-light hover:text-white transition-all">
+              Liên hệ
+            </a>
+          </div>
+        </div>
+
+        <div class="relative" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+          <div class="aspect-[4/5] max-w-md mx-auto lg:ml-auto rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/80 bg-beige-alt flex items-center justify-center">
+            <div class="text-center p-8 text-sea/50">
+              <i class="fa-solid fa-image text-6xl mb-4"></i>
+              <p class="text-sm font-medium">[Ảnh banner / ảnh đại diện Hero]</p>
+              <p class="text-xs mt-2">Điền URL ảnh vào thẻ &lt;img&gt; sau</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -left-4 sm:left-4 bg-white rounded-xl shadow-lg px-5 py-4 max-w-[200px]" data-aos="zoom-in" data-aos-delay="400">
+            <p class="text-2xl font-serif font-bold text-sea">[XX+]</p>
+            <p class="text-xs text-sea/70">[Điền số liệu — dự án / sự kiện / năm kinh nghiệm]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ME SECTION ========== -->
+    <section id="about" class="py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Về tôi</h2>
+          <p class="text-sea/70 max-w-2xl mx-auto">
+            [Điền tagline ngắn — Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.]
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <!-- Avatar placeholder -->
+          <div class="lg:col-span-4" data-aos="fade-right">
+            <div class="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-beige-alt shadow-lg flex items-center justify-center border border-beige-alt">
+              <div class="text-center p-6 text-sea/50">
+                <i class="fa-solid fa-user text-5xl mb-3"></i>
+                <p class="text-sm font-medium">[Ảnh đại diện About]</p>
+              </div>
+            </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
+                <i class="fa-solid fa-location-dot text-sea-light mr-1"></i> [Thành phố, Quốc gia]
+              </span>
+              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
+                <i class="fa-solid fa-graduation-cap text-sea-light mr-1"></i> [Trường / Bằng cấp]
+              </span>
+            </div>
+          </div>
+
+          <!-- Bio & skills -->
+          <div class="lg:col-span-8 space-y-10">
+            <div data-aos="fade-up" data-aos-delay="100">
+              <h3 class="font-serif text-2xl font-semibold text-sea mb-4">Giới thiệu bản thân</h3>
+              <p class="text-sea/80 leading-relaxed mb-4">
+                [Điền đoạn 1 — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]
+              </p>
+              <p class="text-sea/80 leading-relaxed">
+                [Điền đoạn 2 — Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.]
+              </p>
+            </div>
+
+            <!-- Languages & personal projects -->
+            <div class="grid sm:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="150">
+              <div class="bg-beige rounded-xl p-6 border border-beige-alt">
+                <h4 class="font-serif text-lg font-semibold text-sea mb-4 flex items-center gap-2">
+                  <i class="fa-solid fa-language text-sea-light"></i> Ngoại ngữ
+                </h4>
+                <ul class="space-y-2 text-sm text-sea/80">
+                  <li class="flex justify-between"><span>[Tiếng Việt]</span><span class="text-sea-light font-medium">[Bản ngữ]</span></li>
+                  <li class="flex justify-between"><span>[Tiếng Anh]</span><span class="text-sea-light font-medium">[Điền trình độ]</span></li>
+                  <li class="flex justify-between"><span>[Ngôn ngữ khác]</span><span class="text-sea-light font-medium">[Điền trình độ]</span></li>
+                </ul>
+              </div>
+              <div class="bg-beige rounded-xl p-6 border border-beige-alt">
+                <h4 class="font-serif text-lg font-semibold text-sea mb-4 flex items-center gap-2">
+                  <i class="fa-solid fa-lightbulb text-sea-light"></i> Dự án cá nhân
+                </h4>
+                <ul class="space-y-2 text-sm text-sea/80 list-disc list-inside">
+                  <li>[Điền tên dự án cá nhân 1]</li>
+                  <li>[Điền tên dự án cá nhân 2]</li>
+                  <li>[Điền tên dự án cá nhân 3]</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Hard skills progress -->
+            <div data-aos="fade-up" data-aos-delay="200">
+              <h4 class="font-serif text-lg font-semibold text-sea mb-5">Kỹ năng chuyên môn (Hard Skills)</h4>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-sm mb-1"><span>[Kỹ năng 1 — VD: Viết PR]</span><span class="text-sea-light">[80%]</span></div>
+                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="80" style="width: 0;"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1"><span>[Kỹ năng 2 — VD: Quản lý sự kiện]</span><span class="text-sea-light">[75%]</span></div>
+                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="75" style="width: 0;"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1"><span>[Kỹ năng 3 — VD: Sản xuất nội dung]</span><span class="text-sea-light">[85%]</span></div>
+                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="85" style="width: 0;"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1"><span>[Kỹ năng 4]</span><span class="text-sea-light">[70%]</span></div>
+                  <div class="h-2.5 bg-beige-alt rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-sea-light rounded-full" data-width="70" style="width: 0;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft skills tags -->
+            <div data-aos="fade-up" data-aos-delay="250">
+              <h4 class="font-serif text-lg font-semibold text-sea mb-4">Kỹ năng mềm (Soft Skills)</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Giao tiếp]</span>
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Làm việc nhóm]</span>
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Sáng tạo]</span>
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Quản lý thời gian]</span>
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Thuyết trình]</span>
+                <span class="px-4 py-2 rounded-full bg-sea/5 text-sea text-sm border border-sea/10">[Điền thêm...]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PORTFOLIO SECTION ========== -->
+    <section id="portfolio" class="py-20 md:py-28 bg-beige-alt px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Portfolio</h2>
+          <p class="text-sea/70 max-w-2xl mx-auto">
+            [Điền mô tả ngắn về các dự án — Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100" role="tablist" aria-label="Lọc dự án theo hạng mục">
+          <button type="button" class="filter-btn active px-6 py-2.5 rounded-full border-2 border-sea-light text-sm font-medium transition-all" data-filter="all" role="tab" aria-selected="true">
+            Tất cả
+          </button>
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="event" role="tab" aria-selected="false">
+            Event
+          </button>
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="content" role="tab" aria-selected="false">
+            Content
+          </button>
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="quay-chup" role="tab" aria-selected="false">
+            Quay chụp
+          </button>
+        </div>
+
+        <!-- Project grid -->
+        <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative min-h-[200px]">
+
+          <!-- Event cards -->
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="event" data-aos="fade-up">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-calendar-days text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Event 1]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="event" data-aos="fade-up" data-aos-delay="50">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-microphone text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Event 2]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Sed do eiusmod tempor incididunt ut labore.]</p>
+            </div>
+          </article>
+
+          <!-- Content cards -->
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="content" data-aos="fade-up" data-aos-delay="100">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-pen-nib text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Content 1]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Ut enim ad minim veniam, quis nostrud exercitation.]</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="content" data-aos="fade-up" data-aos-delay="150">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-newspaper text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Content 2]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Duis aute irure dolor in reprehenderit.]</p>
+            </div>
+          </article>
+
+          <!-- Quay chụp cards -->
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="quay-chup" data-aos="fade-up" data-aos-delay="200">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-video text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Quay chụp 1]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Excepteur sint occaecat cupidatat non proident.]</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card is-visible bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" data-category="quay-chup" data-aos="fade-up" data-aos-delay="250">
+            <div class="aspect-video bg-beige flex items-center justify-center text-sea/40">
+              <i class="fa-solid fa-camera text-4xl"></i>
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">[Tiêu đề dự án Quay chụp 2]</h3>
+              <p class="text-sm text-sea/70 leading-relaxed">[Mô tả ngắn — Sunt in culpa qui officia deserunt mollit anim.]</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Liên hệ</h2>
+          <p class="text-sea/70 max-w-2xl mx-auto">
+            [Điền lời mời liên hệ — Hãy để lại tin nhắn nếu bạn quan tâm đến hợp tác hoặc cơ hội nghề nghiệp.]
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <!-- Contact info -->
+          <div class="space-y-8" data-aos="fade-right">
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-sea mb-6">Thông tin liên lạc</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm text-sea/60">Email</p>
+                    <a href="mailto:[email@example.com]" class="text-sea font-medium hover:text-sea-light transition-colors">[Email]</a>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
+                    <i class="fa-solid fa-phone"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm text-sea/60">Số điện thoại</p>
+                    <a href="tel:[0123456789]" class="text-sea font-medium hover:text-sea-light transition-colors">[Số điện thoại]</a>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-sea-light shrink-0">
+                    <i class="fa-solid fa-map-pin"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm text-sea/60">Địa chỉ</p>
+                    <p class="text-sea font-medium">[Điền địa chỉ / thành phố]</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="text-sm text-sea/60 mb-4">Mạng xã hội</p>
+              <div class="flex gap-4">
+                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="Facebook — [Điền link]">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="Instagram — [Điền link]">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="LinkedIn — [Điền link]">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="TikTok — [Điền link]">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="#" class="w-11 h-11 rounded-full bg-beige border border-beige-alt flex items-center justify-center text-sea-light hover:bg-sea-light hover:text-white transition-colors" aria-label="YouTube — [Điền link]">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div data-aos="fade-left">
+            <form id="contact-form" class="bg-beige rounded-2xl p-6 sm:p-8 border border-beige-alt shadow-sm" action="#" method="post">
+              <div class="space-y-5">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-sea mb-1.5">Họ và tên</label>
+                  <input type="text" id="name" name="name" placeholder="[Người gửi điền tên]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-sea mb-1.5">Email của bạn</label>
+                  <input type="email" id="email" name="email" placeholder="email@example.com" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
+                </div>
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-sea mb-1.5">Chủ đề</label>
+                  <input type="text" id="subject" name="subject" placeholder="[Chủ đề tin nhắn]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50" />
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium text-sea mb-1.5">Nội dung</label>
+                  <textarea id="message" name="message" rows="5" placeholder="[Điền nội dung tin nhắn...]" class="w-full px-4 py-3 rounded-lg border border-beige-alt bg-white text-sea placeholder:text-sea/40 focus:outline-none focus:ring-2 focus:ring-sea-light/50 resize-y"></textarea>
+                </div>
+                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-sea-light text-white font-medium hover:bg-sea transition-colors inline-flex items-center justify-center gap-2">
+                  Gửi tin nhắn
+                  <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+                <p id="form-notice" class="text-sm text-sea/60 hidden" role="status"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-sea text-white/90 py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
+      <p class="font-serif text-lg">[Tên của bạn]</p>
+      <p>&copy; <span id="year"></span> [Tên của bạn]. [Điền tagline footer — All rights reserved.]</p>
+      <a href="#hero" class="hover:text-sea-muted transition-colors" aria-label="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    /* ----- Init AOS ----- */
+    AOS.init({
+      once: true,
+      offset: 80,
+      duration: 700,
+      easing: 'ease-out-cubic',
+    });
+
+    /* ----- Footer year ----- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ----- Mobile menu ----- */
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    /* ----- Active nav on scroll ----- */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+    function setActiveNav() {
+      const scrollY = window.scrollY + 120;
+      sections.forEach((section) => {
+        const id = section.getAttribute('id');
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.dataset.section === id);
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', setActiveNav, { passive: true });
+    setActiveNav();
+
+    /* ----- Skill bars animate when About is visible ----- */
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    const aboutSection = document.getElementById('about');
+    let skillsAnimated = false;
+
+    const skillsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !skillsAnimated) {
+            skillsAnimated = true;
+            skillBars.forEach((bar) => {
+              const w = bar.getAttribute('data-width');
+              requestAnimationFrame(() => {
+                bar.style.width = w + '%';
+              });
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    if (aboutSection) skillsObserver.observe(aboutSection);
+
+    /* ----- Portfolio filter ----- */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach((b) => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (!isActive) {
+            b.classList.add('text-sea-light');
+          } else {
+            b.classList.remove('text-sea-light');
+          }
+        });
+
+        portfolioCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          const show = filter === 'all' || category === filter;
+
+          card.classList.remove('is-visible', 'is-hidden');
+          if (show) {
+            card.classList.add('is-visible');
+            card.style.display = '';
+          } else {
+            card.classList.add('is-hidden');
+            setTimeout(() => {
+              if (card.classList.contains('is-hidden')) {
+                card.style.display = 'none';
+              }
+            }, 450);
+          }
+        });
+
+        /* Re-show cards with fade */
+        portfolioCards.forEach((card, i) => {
+          const category = card.getAttribute('data-category');
+          const show = filter === 'all' || category === filter;
+          if (show) {
+            card.style.display = '';
+            card.classList.remove('is-hidden');
+            card.classList.add('is-visible');
+          }
+        });
+      });
+    });
+
+    /* ----- Contact form (placeholder — no backend) ----- */
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const notice = document.getElementById('form-notice');
+      notice.textContent = '[Template] Form chưa kết nối backend — cấu hình email/API sau khi triển khai.';
+      notice.classList.remove('hidden');
+    });
+
+    /* ----- Header shadow on scroll ----- */
+    const header = document.getElementById('site-header');
+    window.addEventListener(
+      'scroll',
+      () => {
+        header.classList.toggle('shadow-md', window.scrollY > 10);
+      },
+      { passive: true }
+    );
+  </script>
+</body>
+</html>
