@@ -34,8 +34,14 @@
               coral: '#E56B7A',
             },
             beige: {
-              DEFAULT: '#F2F5F8',
-              alt: '#E6ECF2',
+              DEFAULT: '#FAF8F5',
+              alt: '#F5F1EB',
+            },
+            brand: {
+              DEFAULT: '#7DA7D9',
+              light: '#9BBCE6',
+              soft: '#A8C4E8',
+              dark: '#5E8BBF',
             },
           },
           fontFamily: {
@@ -55,10 +61,34 @@
       font-family: 'Inter', system-ui, sans-serif;
       color: #2A3B52;
       overflow-x: clip;
-      background-color: #F2F5F8;
+      background: linear-gradient(165deg, #7da7d9 0%, #89aedc 38%, #6f9aca 72%, #7da7d9 100%);
+      background-attachment: fixed;
     }
     main {
       overflow-x: clip;
+    }
+
+    .surface-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 32px rgba(42, 59, 82, 0.11);
+      border-radius: 1rem;
+    }
+    .surface-card-beige {
+      background: #faf8f5;
+      border: 1px solid rgba(245, 241, 235, 0.95);
+      box-shadow: 0 8px 24px rgba(42, 59, 82, 0.08);
+      border-radius: 1rem;
+    }
+    .on-brand-heading {
+      color: #fff;
+      text-shadow: 0 1px 14px rgba(30, 42, 58, 0.18);
+    }
+    .on-brand-subtext {
+      color: rgba(255, 255, 255, 0.93);
+    }
+    .on-brand-subtext-muted {
+      color: rgba(255, 255, 255, 0.82);
     }
 
     .parallax-section {
@@ -469,11 +499,10 @@
     }
 
     .softwares-panel {
-      background: #7da7d9;
-      border-radius: 1rem;
       padding: 1.5rem 1.25rem;
-      box-shadow: 0 12px 32px rgba(42, 59, 82, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+    .softwares-panel.surface-card {
+      background: rgba(255, 255, 255, 0.96);
     }
     @media (min-width: 640px) {
       .softwares-panel {
@@ -484,10 +513,10 @@
       font-family: 'Caveat', cursive;
       font-size: 2.75rem;
       line-height: 1;
-      color: #fff;
+      color: #5e8bbf;
     }
     .softwares-panel-intro {
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(42, 59, 82, 0.78);
       font-size: 0.9375rem;
       line-height: 1.55;
     }
@@ -495,10 +524,11 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      background: rgba(255, 255, 255, 0.94);
+      background: #f5f1eb;
+      border: 1px solid rgba(230, 236, 242, 0.9);
       border-radius: 0.75rem;
       padding: 0.65rem 0.85rem;
-      box-shadow: 0 2px 8px rgba(30, 42, 58, 0.08);
+      box-shadow: 0 1px 4px rgba(30, 42, 58, 0.05);
     }
     .software-icon {
       width: 2.85rem;
@@ -584,12 +614,18 @@
     }
 
     .hero-gradient {
-      background: linear-gradient(135deg, #F2F5F8 0%, #E6ECF2 45%, rgba(224, 122, 154, 0.14) 100%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(125, 167, 217, 0.35) 45%,
+        rgba(110, 154, 202, 0.5) 100%
+      );
     }
 
     .cert-gallery-card {
-      background: linear-gradient(180deg, #F2F5F8 0%, #E6ECF2 100%);
-      border: 1px solid rgba(90, 118, 148, 0.22);
+      background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 20px rgba(42, 59, 82, 0.08);
     }
     .cert-gallery-frame {
       display: flex;
@@ -597,6 +633,7 @@
       justify-content: center;
       min-height: 10rem;
       padding: 0.75rem;
+      background: #faf8f5;
     }
     .cert-gallery-img {
       display: block;
@@ -608,7 +645,7 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #5A7694 0%, #2A3B52 100%);
+      background: linear-gradient(135deg, #5e8bbf 0%, #2a3b52 100%);
     }
     .btn-primary:hover {
       background: linear-gradient(135deg, #C8465C 0%, #E07A9A 100%);
@@ -632,10 +669,10 @@
     }
   </style>
 </head>
-<body class="bg-beige text-sea antialiased">
+<body class="text-sea antialiased">
 
   <!-- ========== HEADER / NAVIGATION ========== -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-beige/95 backdrop-blur-md shadow-sm transition-shadow border-b border-sea-muted/30">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md shadow-sm transition-shadow border-b border-white/50">
     <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Điều hướng chính">
       <div class="flex items-center justify-between h-16 md:h-20">
         <a href="#hero" class="font-serif text-xl md:text-2xl font-semibold text-sea tracking-tight">
@@ -660,7 +697,7 @@
         </button>
       </div>
 
-      <div id="mobile-menu" class="md:hidden border-t border-beige-alt">
+      <div id="mobile-menu" class="md:hidden border-t border-white/40 bg-white/95">
         <ul class="py-4 space-y-3 text-sm font-medium">
           <li><a href="#hero" class="block py-2 mobile-nav-link">Trang chủ</a></li>
           <li><a href="#about" class="block py-2 mobile-nav-link">Giới thiệu</a></li>
@@ -676,23 +713,23 @@
     <!-- ========== HERO SECTION ========== -->
     <section id="hero" class="parallax-section hero-gradient min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.4" aria-hidden="true">
-        <div class="blob w-[420px] h-[420px] bg-sea-muted/50 top-[-5%] right-[5%]"></div>
-        <div class="blob w-[320px] h-[320px] bg-sea-light/25 bottom-[10%] left-[-5%]"></div>
-        <div class="blob w-[240px] h-[240px] bg-accent-rose/35 top-[35%] left-[25%]"></div>
-        <div class="blob w-[180px] h-[180px] bg-accent-pink/25 top-[15%] right-[20%]"></div>
+        <div class="blob w-[420px] h-[420px] bg-white/35 top-[-5%] right-[5%]"></div>
+        <div class="blob w-[320px] h-[320px] bg-brand-light/40 bottom-[10%] left-[-5%]"></div>
+        <div class="blob w-[240px] h-[240px] bg-accent-rose/30 top-[35%] left-[25%]"></div>
+        <div class="blob w-[180px] h-[180px] bg-white/45 top-[15%] right-[20%]"></div>
       </div>
       <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center parallax-content">
         <div class="parallax-reveal parallax-move" data-parallax-speed="-0.12">
-          <p class="text-sea-light font-medium tracking-widest uppercase text-xs sm:text-sm mb-4">
+          <p class="on-brand-subtext-muted font-medium tracking-widest uppercase text-xs sm:text-sm mb-4">
             Portfolio · Truyền thông & Sáng tạo
           </p>
-          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-sea mb-6">
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight on-brand-heading mb-6">
             Trần Đan Đan
           </h1>
-          <p class="text-lg sm:text-xl text-sea-light font-medium mb-4">
-            Chuyên viên Truyền thông nội bộ &amp; Event <span class="text-sea">| Cử nhân Quan hệ công chúng</span>
+          <p class="text-lg sm:text-xl on-brand-subtext font-medium mb-4">
+            Chuyên viên Truyền thông nội bộ &amp; Event <span class="text-white font-semibold">| Cử nhân Quan hệ công chúng</span>
           </p>
-          <p class="text-base sm:text-lg text-sea/80 leading-relaxed max-w-xl mb-8">
+          <p class="text-base sm:text-lg on-brand-subtext leading-relaxed max-w-xl mb-8">
             Một Gen Z đam mê kết hợp Internal Communication – Event – Social để tối ưu nguồn lực, lan tỏa thông điệp và tạo ra những trải nghiệm văn hóa doanh nghiệp đáng nhớ.
           </p>
           <div class="flex flex-wrap gap-4">
@@ -707,7 +744,7 @@
         </div>
 
         <div class="relative parallax-reveal parallax-move" data-parallax-speed="0.18">
-          <div class="aspect-[4/5] max-w-md mx-auto lg:ml-auto rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/80 bg-beige-alt parallax-move" data-parallax-speed="0.22">
+          <div class="aspect-[4/5] max-w-md mx-auto lg:ml-auto rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/90 bg-white parallax-move" data-parallax-speed="0.22">
             <img src="./assets/%E1%BA%A3nh%20profile/profile-hero.jpg" alt="Trần Đan Đan — ảnh đại diện" class="w-full h-full object-cover object-top" loading="eager" />
           </div>
           <div class="absolute -bottom-4 -left-4 sm:left-4 bg-white rounded-xl shadow-lg px-5 py-4 max-w-[200px] parallax-move" data-parallax-speed="-0.28">
@@ -719,34 +756,34 @@
     </section>
 
     <!-- ========== ABOUT ME SECTION ========== -->
-    <section id="about" class="parallax-section py-20 md:py-28 bg-beige-alt/80 px-4 sm:px-6 lg:px-8">
+    <section id="about" class="parallax-section py-20 md:py-28 px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.25" aria-hidden="true">
-        <div class="blob w-[500px] h-[500px] bg-beige-alt top-[-15%] left-[-10%]"></div>
-        <div class="blob w-[280px] h-[280px] bg-sea-muted/40 bottom-[0] right-[0]"></div>
+        <div class="blob w-[500px] h-[500px] bg-white/25 top-[-15%] left-[-10%]"></div>
+        <div class="blob w-[280px] h-[280px] bg-brand-light/35 bottom-[0] right-[0]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-10 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif type-section-title font-bold text-sea mb-5">Về tôi</h2>
-          <p class="type-section-lead text-sea/85 max-w-3xl mx-auto mb-4">
+          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-5">Về tôi</h2>
+          <p class="type-section-lead on-brand-subtext max-w-3xl mx-auto mb-4">
             Tôi tin rằng truyền thông nội bộ không chỉ là truyền tải thông tin, mà còn là nghệ thuật kết nối con người, xây dựng văn hóa và gia tăng sự gắn kết. Với nền tảng Quản trị truyền thông doanh nghiệp tại HUTECH, tôi luôn hướng đến việc tạo ra những hoạt động vừa sáng tạo, vừa mang lại giá trị thực tế.
           </p>
-          <p class="type-section-tagline text-sea/70 max-w-2xl mx-auto mb-6">
+          <p class="type-section-tagline on-brand-subtext-muted max-w-2xl mx-auto mb-6">
             Kết nối con người, xây dựng văn hóa và tạo trải nghiệm truyền thông nội bộ có giá trị thực tế.
           </p>
-          <h3 class="font-serif type-block-title font-semibold text-sea">Giới thiệu bản thân</h3>
+          <h3 class="font-serif type-block-title font-semibold on-brand-heading">Giới thiệu bản thân</h3>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           <!-- Avatar — ảnh riêng mục Về tôi -->
           <div class="lg:col-span-4 parallax-reveal parallax-move" data-parallax-speed="0.14">
-            <div class="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-beige-alt shadow-lg border border-beige-alt">
+            <div class="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden surface-card shadow-lg">
               <img src="./assets/%E1%BA%A3nh%20profile/profile-about.jpg" alt="Trần Đan Đan — giới thiệu" class="w-full h-full object-cover object-top" loading="lazy" />
             </div>
             <div class="mt-6 flex flex-wrap justify-center gap-3">
-              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
+              <span class="px-4 py-2 rounded-full surface-card-beige text-sm text-sea">
                 <i class="fa-solid fa-location-dot text-sea-light mr-1"></i> TP. Hồ Chí Minh, Việt Nam
               </span>
-              <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt text-center max-w-md leading-snug">
+              <span class="px-4 py-2 rounded-full surface-card-beige text-sm text-sea text-center max-w-md leading-snug">
                 <i class="fa-solid fa-graduation-cap text-sea-light mr-1"></i> HUTECH · Quản trị truyền thông doanh nghiệp (2022–2026)
               </span>
             </div>
@@ -756,7 +793,7 @@
           <div class="lg:col-span-8 space-y-10">
             <!-- Languages & personal projects -->
             <div class="grid sm:grid-cols-2 gap-8 parallax-reveal parallax-move" data-parallax-speed="0.1">
-              <div class="bg-beige rounded-xl p-6 border border-beige-alt">
+              <div class="surface-card p-6">
                 <h4 class="font-serif type-block-title font-semibold text-sea mb-4 flex items-center gap-2">
                   <i class="fa-solid fa-graduation-cap text-sea-light"></i> Học vấn
                 </h4>
@@ -764,7 +801,7 @@
                   Đại học Công nghệ TP.HCM (HUTECH) — Chuyên ngành Quản trị truyền thông doanh nghiệp (2022 – 2026).
                 </p>
               </div>
-              <div class="bg-beige rounded-xl p-6 border border-beige-alt">
+              <div class="surface-card p-6">
                 <h4 class="font-serif type-block-title font-semibold text-sea mb-4 flex items-center gap-2">
                   <i class="fa-solid fa-star text-sea-light"></i> Điểm nổi bật
                 </h4>
@@ -775,7 +812,7 @@
             </div>
 
             <!-- Công cụ — thứ tự: Gemini, ChatGPT, Excel, Word, Canva -->
-            <div class="parallax-reveal parallax-move softwares-panel max-w-3xl" data-parallax-speed="-0.05">
+            <div class="parallax-reveal parallax-move softwares-panel surface-card max-w-3xl" data-parallax-speed="-0.05">
               <h4 class="softwares-title mb-2">Công cụ</h4>
               <p class="softwares-panel-intro mb-6 max-w-xl">Thành thạo công cụ AI và bộ Office theo mục Kỹ năng trên CV.</p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -839,7 +876,7 @@
 
             <!-- Kỹ năng (nội dung theo CV) -->
             <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
-              <div class="max-w-3xl rounded-xl border border-accent-pink/20 bg-white/60 shadow-sm p-5 sm:p-6">
+              <div class="max-w-3xl surface-card-beige p-5 sm:p-6">
                 <div class="skills-cv-header">Kỹ năng</div>
                 <div class="grid md:grid-cols-2 gap-x-8 gap-y-1">
                   <ul class="skills-cv-list">
@@ -864,37 +901,37 @@
     <!-- ========== PORTFOLIO SECTION ========== -->
     <section id="portfolio" class="parallax-section py-20 md:py-28 px-4 sm:px-6 lg:px-8">
       <div
-        class="parallax-bg-image is-fixed bg-beige-alt"
+        class="parallax-bg-image is-fixed"
         data-parallax-bg-scale="0.15"
-        style="background-image: linear-gradient(160deg, #E6ECF2 0%, #F2F5F8 42%, rgba(90, 118, 148, 0.16) 68%, rgba(224, 122, 154, 0.12) 100%);"
+        style="background-image: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(125,167,217,0.25) 50%, rgba(110,154,202,0.35) 100%);"
         aria-hidden="true"
       ></div>
       <div class="parallax-bg-layer" data-parallax-bg="0.3" aria-hidden="true">
-        <div class="blob w-[360px] h-[360px] bg-sea-light/25 top-[20%] right-[-8%]"></div>
-        <div class="blob w-[300px] h-[300px] bg-accent-pink/20 bottom-[5%] left-[-8%]"></div>
-        <div class="blob w-[440px] h-[440px] bg-white/70 bottom-[-10%] left-[-12%]"></div>
+        <div class="blob w-[360px] h-[360px] bg-white/30 top-[20%] right-[-8%]"></div>
+        <div class="blob w-[300px] h-[300px] bg-accent-pink/22 bottom-[5%] left-[-8%]"></div>
+        <div class="blob w-[440px] h-[440px] bg-brand-light/35 bottom-[-10%] left-[-12%]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.1">
-          <h2 class="font-serif type-section-title font-bold text-sea mb-4">Portfolio</h2>
-          <p class="type-section-lead text-sea/75 max-w-2xl mx-auto">
+          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-4">Portfolio</h2>
+          <p class="type-section-lead on-brand-subtext max-w-2xl mx-auto">
             Tổng hợp các dự án Event, Content và Quay chụp trong hành trình truyền thông nội bộ, sự kiện và sản xuất media.
-            <span class="block mt-2 type-caption text-sea-light">Nhấn vào ảnh hoặc <strong class="font-medium text-accent-red">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
+            <span class="block mt-2 type-caption on-brand-subtext-muted">Nhấn vào ảnh hoặc <strong class="font-medium text-white">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
           </p>
         </div>
 
         <!-- Filter tabs -->
         <div class="flex flex-wrap justify-center gap-3 mb-12 parallax-reveal parallax-move" data-parallax-speed="0.06" role="tablist" aria-label="Lọc dự án theo hạng mục">
-          <button type="button" class="filter-btn active px-6 py-2.5 rounded-full border-2 border-sea-light text-sm font-medium transition-all" data-filter="all" role="tab" aria-selected="true">
+          <button type="button" class="filter-btn active px-6 py-2.5 rounded-full border-2 border-white/80 text-sm font-medium transition-all shadow-sm" data-filter="all" role="tab" aria-selected="true">
             Tất cả
           </button>
-          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="event" role="tab" aria-selected="false">
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-white/70 bg-white/85 text-sea-light text-sm font-medium hover:bg-white hover:text-sea transition-all shadow-sm" data-filter="event" role="tab" aria-selected="false">
             Event
           </button>
-          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="content" role="tab" aria-selected="false">
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-white/70 bg-white/85 text-sea-light text-sm font-medium hover:bg-white hover:text-sea transition-all shadow-sm" data-filter="content" role="tab" aria-selected="false">
             Content
           </button>
-          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-sea-light text-sea-light text-sm font-medium hover:bg-sea-light hover:text-white transition-all" data-filter="quay-chup" role="tab" aria-selected="false">
+          <button type="button" class="filter-btn px-6 py-2.5 rounded-full border-2 border-white/70 bg-white/85 text-sea-light text-sm font-medium hover:bg-white hover:text-sea transition-all shadow-sm" data-filter="quay-chup" role="tab" aria-selected="false">
             Quay chụp
           </button>
         </div>
@@ -1070,23 +1107,23 @@
     </section>
 
     <!-- ========== CHỨNG NHẬN & KỸ NĂNG BỔ TRỢ SECTION ========== -->
-    <section id="certificates" class="parallax-section py-20 md:py-28 bg-beige px-4 sm:px-6 lg:px-8">
+    <section id="certificates" class="parallax-section py-20 md:py-28 px-4 sm:px-6 lg:px-8">
       <div class="parallax-bg-layer" data-parallax-bg="0.18" aria-hidden="true">
-        <div class="blob w-[400px] h-[400px] bg-beige-alt top-[-10%] right-[-5%]"></div>
-        <div class="blob w-[280px] h-[280px] bg-sea-muted/30 bottom-[0] left-[0]"></div>
-        <div class="blob w-[220px] h-[220px] bg-accent-rose/25 top-[30%] left-[8%]"></div>
+        <div class="blob w-[400px] h-[400px] bg-white/22 top-[-10%] right-[-5%]"></div>
+        <div class="blob w-[280px] h-[280px] bg-brand-light/30 bottom-[0] left-[0]"></div>
+        <div class="blob w-[220px] h-[220px] bg-accent-rose/22 top-[30%] left-[8%]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif type-section-title font-bold text-sea mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
-          <p class="type-section-tagline text-sea/70 max-w-2xl mx-auto">
-            Giấy chứng nhận và tài lẻ (MC, ca hát, múa) từ bộ tài nguyên <code class="text-xs bg-beige px-1.5 py-0.5 rounded">assets/</code>.
+          <h2 class="font-serif type-section-title font-bold on-brand-heading mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
+          <p class="type-section-tagline on-brand-subtext-muted max-w-2xl mx-auto">
+            Giấy chứng nhận và tài lẻ (MC, ca hát, múa) từ bộ tài nguyên <code class="text-xs bg-white/90 text-sea px-1.5 py-0.5 rounded">assets/</code>.
           </p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-14">
           <!-- Giấy chứng nhận -->
-          <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
+          <div class="parallax-reveal parallax-move surface-card p-5 sm:p-6" data-parallax-speed="0.08">
             <h3 class="font-serif type-block-title font-semibold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-certificate text-accent-pink"></i> Giấy chứng nhận
             </h3>
@@ -1125,7 +1162,7 @@
           </div>
 
           <!-- Tài lẻ -->
-          <div class="parallax-reveal parallax-move" data-parallax-speed="-0.06">
+          <div class="parallax-reveal parallax-move surface-card p-5 sm:p-6" data-parallax-speed="-0.06">
             <h3 class="font-serif type-block-title font-semibold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-microphone-lines text-accent-pink"></i> Tài lẻ (MC, ca hát, múa)
             </h3>
@@ -1157,7 +1194,7 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="parallax-section bg-gradient-to-br from-sea-dark via-sea to-sea-light text-white/90 py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <footer class="parallax-section bg-gradient-to-br from-brand-dark via-sea to-sea-light text-white/90 py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
     <div class="parallax-bg-layer" data-parallax-bg="0.15" aria-hidden="true">
       <div class="blob w-[300px] h-[300px] bg-sea-light/30 top-[-40%] left-[20%]"></div>
       <div class="blob w-[200px] h-[200px] bg-accent-pink/25 bottom-[-20%] right-[10%]"></div>
