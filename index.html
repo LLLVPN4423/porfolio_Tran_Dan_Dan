@@ -120,6 +120,52 @@
       font-family: 'Playfair Display', Georgia, serif;
     }
 
+    .type-section-title {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      line-height: 1.2;
+    }
+    .type-section-lead {
+      font-size: clamp(1rem, 1.6vw, 1.125rem);
+      line-height: 1.65;
+    }
+    .type-section-tagline {
+      font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+      line-height: 1.55;
+    }
+    .type-block-title {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      line-height: 1.35;
+    }
+    .type-card-title {
+      font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+      line-height: 1.35;
+    }
+    .type-body {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+    .type-caption {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+    .portfolio-card--featured {
+      border: 2px solid rgba(224, 122, 154, 0.45);
+      box-shadow: 0 12px 36px rgba(200, 70, 92, 0.18);
+    }
+    .portfolio-card--featured .portfolio-card-title {
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      color: #1e2a3a;
+    }
+    .portfolio-card--featured .portfolio-card-body {
+      font-size: 1rem;
+      color: rgba(42, 59, 82, 0.9);
+    }
+    .portfolio-card--featured .portfolio-card-label {
+      color: #c8465c;
+      font-weight: 700;
+    }
+
     .nav-link.active {
       color: #C8465C;
     }
@@ -678,18 +724,22 @@
         <div class="blob w-[280px] h-[280px] bg-sea-muted/40 bottom-[0] right-[0]"></div>
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
-        <div class="text-center mb-14 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Về tôi</h2>
-          <p class="text-sea/70 max-w-2xl mx-auto">
+        <div class="text-center mb-10 parallax-reveal parallax-move" data-parallax-speed="-0.08">
+          <h2 class="font-serif type-section-title font-bold text-sea mb-5">Về tôi</h2>
+          <p class="type-section-lead text-sea/85 max-w-3xl mx-auto mb-4">
+            Tôi tin rằng truyền thông nội bộ không chỉ là truyền tải thông tin, mà còn là nghệ thuật kết nối con người, xây dựng văn hóa và gia tăng sự gắn kết. Với nền tảng Quản trị truyền thông doanh nghiệp tại HUTECH, tôi luôn hướng đến việc tạo ra những hoạt động vừa sáng tạo, vừa mang lại giá trị thực tế.
+          </p>
+          <p class="type-section-tagline text-sea/70 max-w-2xl mx-auto mb-6">
             Kết nối con người, xây dựng văn hóa và tạo trải nghiệm truyền thông nội bộ có giá trị thực tế.
           </p>
+          <h3 class="font-serif type-block-title font-semibold text-sea">Giới thiệu bản thân</h3>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <!-- Avatar placeholder -->
+          <!-- Avatar — ảnh riêng mục Về tôi -->
           <div class="lg:col-span-4 parallax-reveal parallax-move" data-parallax-speed="0.14">
             <div class="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-beige-alt shadow-lg border border-beige-alt">
-              <img src="./assets/%E1%BA%A3nh%20profile/profile-hero.jpg" alt="Trần Đan Đan — giới thiệu" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src="./assets/%E1%BA%A3nh%20profile/profile-about.jpg" alt="Trần Đan Đan — giới thiệu" class="w-full h-full object-cover object-top" loading="lazy" />
             </div>
             <div class="mt-6 flex flex-wrap justify-center gap-3">
               <span class="px-4 py-2 rounded-full bg-beige text-sm text-sea border border-beige-alt">
@@ -701,19 +751,12 @@
             </div>
           </div>
 
-          <!-- Bio & skills -->
+          <!-- Học vấn & kỹ năng -->
           <div class="lg:col-span-8 space-y-10">
-            <div class="parallax-reveal parallax-move" data-parallax-speed="-0.06">
-              <h3 class="font-serif text-2xl font-semibold text-sea mb-4">Giới thiệu bản thân</h3>
-              <p class="text-sea/80 leading-relaxed">
-                Tôi tin rằng truyền thông nội bộ không chỉ là truyền tải thông tin, mà còn là nghệ thuật kết nối con người, xây dựng văn hóa và gia tăng sự gắn kết. Với nền tảng Quản trị truyền thông doanh nghiệp tại HUTECH, tôi luôn hướng đến việc tạo ra những hoạt động vừa sáng tạo, vừa mang lại giá trị thực tế.
-              </p>
-            </div>
-
             <!-- Languages & personal projects -->
             <div class="grid sm:grid-cols-2 gap-8 parallax-reveal parallax-move" data-parallax-speed="0.1">
               <div class="bg-beige rounded-xl p-6 border border-beige-alt">
-                <h4 class="font-serif text-lg font-semibold text-sea mb-4 flex items-center gap-2">
+                <h4 class="font-serif type-block-title font-semibold text-sea mb-4 flex items-center gap-2">
                   <i class="fa-solid fa-graduation-cap text-sea-light"></i> Học vấn
                 </h4>
                 <p class="text-sm text-sea/80 leading-relaxed">
@@ -721,7 +764,7 @@
                 </p>
               </div>
               <div class="bg-beige rounded-xl p-6 border border-beige-alt">
-                <h4 class="font-serif text-lg font-semibold text-sea mb-4 flex items-center gap-2">
+                <h4 class="font-serif type-block-title font-semibold text-sea mb-4 flex items-center gap-2">
                   <i class="fa-solid fa-star text-sea-light"></i> Điểm nổi bật
                 </h4>
                 <p class="text-sm text-sea/80 leading-relaxed">
@@ -854,10 +897,10 @@
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.1">
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Portfolio</h2>
-          <p class="text-sea/70 max-w-2xl mx-auto">
+          <h2 class="font-serif type-section-title font-bold text-sea mb-4">Portfolio</h2>
+          <p class="type-section-lead text-sea/75 max-w-2xl mx-auto">
             Tổng hợp các dự án Event, Content và Quay chụp trong hành trình truyền thông nội bộ, sự kiện và sản xuất media.
-            <span class="block mt-2 text-sm text-sea-light">Nhấn vào ảnh hoặc <strong class="font-medium text-accent-red">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
+            <span class="block mt-2 type-caption text-sea-light">Nhấn vào ảnh hoặc <strong class="font-medium text-accent-red">Xem tài nguyên</strong> để mở album ảnh đầy đủ từ thư mục dự án.</span>
           </p>
         </div>
 
@@ -890,8 +933,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Dạ tiệc cao cấp &quot;Velvet 9: Nhung&quot;</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Lên kế hoạch, điều phối timeline và quản lý truyền thông cho sự kiện quy mô hơn 350 người cùng 30 khách mời doanh nghiệp lớn (Dat Xanh, ELLE, FPT...).</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Dạ tiệc cao cấp &quot;Velvet 9: Nhung&quot;</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Lên kế hoạch, điều phối timeline và quản lý truyền thông cho sự kiện quy mô hơn 350 người cùng 30 khách mời doanh nghiệp lớn (Dat Xanh, ELLE, FPT...).</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -906,26 +949,26 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Talkshow &quot;Tử chiến Talk&quot;</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Phó Ban tổ chức.</strong> Điều phối tổng thể, đón tiếp khách mời VIP (đạo diễn, diễn viên) và chịu trách nhiệm hình ảnh chính cho sự kiện quy mô 200+ sinh viên.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Talkshow &quot;Tử chiến Talk&quot;</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Phó Ban tổ chức.</strong> Điều phối tổng thể, đón tiếp khách mời VIP (đạo diễn, diễn viên) và chịu trách nhiệm hình ảnh chính cho sự kiện quy mô 200+ sinh viên.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
-          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.09" data-gallery-id="thuc-tap-fpt">
-          <article class="portfolio-card portfolio-card-interactive bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <div class="portfolio-card-wrap is-visible parallax-move sm:col-span-2 lg:col-span-1" data-category="event" data-parallax-speed="0.09" data-gallery-id="thuc-tap-fpt">
+          <article class="portfolio-card portfolio-card-interactive portfolio-card--featured bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
             <button type="button" class="portfolio-card-media aspect-video overflow-hidden" data-open-gallery aria-label="Xem album Thực tập FPT">
               <img src="./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%201.jpg" alt="Thực tập FPT" class="w-full h-full object-cover" loading="lazy" />
               <span class="portfolio-card-badge" data-gallery-count aria-hidden="true"></span>
               <span class="portfolio-card-overlay"><i class="fa-solid fa-images"></i> Xem album</span>
             </button>
-            <div class="p-5 flex flex-col flex-1">
-              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Thực tập FPT</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thực tập sinh.</strong> Trực tiếp tổ chức các hoạt động thể thao, giải trí thường niên và teambuilding nhằm đẩy mạnh truyền thông đối nội bộ phận.</p>
+            <div class="p-6 flex flex-col flex-1 bg-gradient-to-b from-white to-accent-rose/10">
+              <span class="portfolio-card-label text-xs uppercase tracking-wider font-semibold">Event · Nổi bật</span>
+              <h3 class="portfolio-card-title font-serif mt-2 mb-3">Thực tập FPT</h3>
+              <p class="portfolio-card-body leading-relaxed"><strong class="text-sea font-bold">Vai trò: Thực tập sinh Truyền thông nội bộ văn hóa doanh nghiệp.</strong> Trực tiếp tổ chức các hoạt động thể thao, giải trí thường niên và teambuilding nhằm đẩy mạnh truyền thông đối nội bộ phận.</p>
             </div>
-            <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
+            <button type="button" class="portfolio-open-gallery font-semibold" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
           </div>
 
@@ -938,8 +981,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Dự án thiện nguyện &quot;Quà Ngọt Trao Em&quot;</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Điều phối chạy toàn bộ chương trình trong 1 tháng, quản lý thành viên và trao tặng thành công hơn 700 phần quà.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Dự án thiện nguyện &quot;Quà Ngọt Trao Em&quot;</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Trưởng Ban tổ chức.</strong> Điều phối chạy toàn bộ chương trình trong 1 tháng, quản lý thành viên và trao tặng thành công hơn 700 phần quà.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -954,8 +997,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Giải chạy</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về dự án Giải chạy. Ảnh sẽ map từ thư mục assets/Event - Giải chạy.]</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Giải chạy</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về dự án Giải chạy. Ảnh sẽ map từ thư mục assets/Event - Giải chạy.]</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -970,8 +1013,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Whose chance talk</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về sự kiện Whose chance talk. Ảnh sẽ map từ assets/Event - whose chance talk.]</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Whose chance talk</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về sự kiện Whose chance talk. Ảnh sẽ map từ assets/Event - whose chance talk.]</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -987,8 +1030,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Quản trị Fanpage Khoa KHXH&amp;QHCC</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Lập kế hoạch, viết kịch bản và bài PR trước-trong-sau sự kiện, duy trì tương tác ổn định trung bình &gt;100 lượt/bài.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Quản trị Fanpage Khoa KHXH&amp;QHCC</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Lập kế hoạch, viết kịch bản và bài PR trước-trong-sau sự kiện, duy trì tương tác ổn định trung bình &gt;100 lượt/bài.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -1003,8 +1046,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Content</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">SaiGon Image Festival</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thành viên Đội truyền thông.</strong> Phụ trách xây dựng tuyến bài viết truyền thông cho cuộc thi nhiếp ảnh, các bài viết đạt hơn 1.000 lượt xem và tương tác.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">SaiGon Image Festival</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thành viên Đội truyền thông.</strong> Phụ trách xây dựng tuyến bài viết truyền thông cho cuộc thi nhiếp ảnh, các bài viết đạt hơn 1.000 lượt xem và tương tác.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -1020,8 +1063,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Xây dựng Kênh Tiktok FPT Software</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thực tập sinh.</strong> Trực tiếp sản xuất kênh truyền thông Tiktok cho bộ phận, tự tay quay dựng và tạo series truyền thông liên tiếp 8 số.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Xây dựng Kênh Tiktok FPT Software</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: Thực tập sinh.</strong> Trực tiếp sản xuất kênh truyền thông Tiktok cho bộ phận, tự tay quay dựng và tạo series truyền thông liên tiếp 8 số.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -1036,8 +1079,8 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Quay chụp</span>
-              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Media Recap HUTECH</h3>
-              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Trực tiếp quay dựng các clip ngắn, video recap sự kiện khoa, đạt mốc tiếp cận hơn 1.000 lượt xem cho mỗi lần đăng tải.</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Media Recap HUTECH</h3>
+              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò: CTV Truyền thông.</strong> Trực tiếp quay dựng các clip ngắn, video recap sự kiện khoa, đạt mốc tiếp cận hơn 1.000 lượt xem cho mỗi lần đăng tải.</p>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -1056,8 +1099,8 @@
       </div>
       <div class="max-w-6xl mx-auto parallax-content">
         <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.08">
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
-          <p class="text-sea/70 max-w-2xl mx-auto">
+          <h2 class="font-serif type-section-title font-bold text-sea mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
+          <p class="type-section-tagline text-sea/70 max-w-2xl mx-auto">
             Giấy chứng nhận và tài lẻ (MC, ca hát, múa) từ bộ tài nguyên <code class="text-xs bg-beige px-1.5 py-0.5 rounded">assets/</code>.
           </p>
         </div>
@@ -1065,7 +1108,7 @@
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-14">
           <!-- Giấy chứng nhận -->
           <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
-            <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
+            <h3 class="font-serif type-block-title font-semibold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-certificate text-accent-pink"></i> Giấy chứng nhận
             </h3>
             <div class="grid grid-cols-2 gap-4">
@@ -1104,7 +1147,7 @@
 
           <!-- Tài lẻ -->
           <div class="parallax-reveal parallax-move" data-parallax-speed="-0.06">
-            <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
+            <h3 class="font-serif type-block-title font-semibold text-sea mb-6 flex items-center gap-2">
               <i class="fa-solid fa-microphone-lines text-accent-pink"></i> Tài lẻ (MC, ca hát, múa)
             </h3>
             <div class="grid grid-cols-2 gap-4">
