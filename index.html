@@ -202,7 +202,7 @@
       transition: max-height 0.35s ease;
     }
     #mobile-menu.open {
-      max-height: 320px;
+      max-height: 380px;
     }
   </style>
 </head>
@@ -220,6 +220,7 @@
           <li><a href="#hero" class="nav-link py-1" data-section="hero">Trang chủ</a></li>
           <li><a href="#about" class="nav-link py-1" data-section="about">Giới thiệu</a></li>
           <li><a href="#portfolio" class="nav-link py-1" data-section="portfolio">Dự án</a></li>
+          <li><a href="#certificates" class="nav-link py-1" data-section="certificates">Chứng nhận</a></li>
         </ul>
 
         <a href="#portfolio" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sea-light text-white text-sm font-medium hover:bg-sea transition-colors">
@@ -238,6 +239,7 @@
           <li><a href="#hero" class="block py-2 mobile-nav-link">Trang chủ</a></li>
           <li><a href="#about" class="block py-2 mobile-nav-link">Giới thiệu</a></li>
           <li><a href="#portfolio" class="block py-2 mobile-nav-link">Dự án</a></li>
+          <li><a href="#certificates" class="block py-2 mobile-nav-link">Chứng nhận</a></li>
         </ul>
       </div>
     </nav>
@@ -503,6 +505,32 @@
           </article>
           </div>
 
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.1">
+          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <div class="aspect-video bg-beige overflow-hidden">
+              <img src="https://placehold.co/800x450/457B9D/FAF9F6?text=Gi%E1%BA%A3i+ch%E1%BA%A1y" alt="Giải chạy" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Giải chạy</h3>
+              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về dự án Giải chạy. Ảnh sẽ map từ thư mục assets/Event - Giải chạy.]</p>
+            </div>
+          </article>
+          </div>
+
+          <div class="portfolio-card-wrap is-visible parallax-move" data-category="event" data-parallax-speed="0.14">
+          <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <div class="aspect-video bg-beige overflow-hidden">
+              <img src="https://placehold.co/800x450/1D3557/FFFFFF?text=Whose+Chance+Talk" alt="Whose chance talk" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
+              <h3 class="font-serif text-xl font-semibold text-sea mt-2 mb-2">Whose chance talk</h3>
+              <p class="text-sm text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về sự kiện Whose chance talk. Ảnh sẽ map từ assets/Event - whose chance talk.]</p>
+            </div>
+          </article>
+          </div>
+
           <!-- Content cards -->
           <div class="portfolio-card-wrap is-visible parallax-move" data-category="content" data-parallax-speed="0.08">
           <article class="portfolio-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
@@ -557,6 +585,74 @@
           </article>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CHỨNG NHẬN & KỸ NĂNG BỔ TRỢ SECTION ========== -->
+    <section id="certificates" class="parallax-section py-20 md:py-28 bg-white px-4 sm:px-6 lg:px-8">
+      <div class="parallax-bg-layer" data-parallax-bg="0.18" aria-hidden="true">
+        <div class="blob w-[400px] h-[400px] bg-beige-alt top-[-10%] right-[-5%]"></div>
+        <div class="blob w-[280px] h-[280px] bg-sea-muted/30 bottom-[0] left-[0]"></div>
+      </div>
+      <div class="max-w-6xl mx-auto parallax-content">
+        <div class="text-center mb-12 parallax-reveal parallax-move" data-parallax-speed="-0.08">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sea mb-4">Chứng nhận &amp; Kỹ năng bổ trợ</h2>
+          <p class="text-sea/70 max-w-2xl mx-auto">
+            Khu vực hiển thị giấy chứng nhận và tài lẻ (MC, ca hát, múa). Ảnh placeholder — sẽ thay bằng file trong thư mục <code class="text-xs bg-beige px-1.5 py-0.5 rounded">assets/</code>.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14">
+          <!-- Giấy chứng nhận -->
+          <div class="parallax-reveal parallax-move" data-parallax-speed="0.08">
+            <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-certificate text-sea-light"></i> Giấy chứng nhận
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/FAF9F6/1D3557?text=Ch%E1%BB%A9ng+nh%E1%BA%ADn+1" alt="[Giấy chứng nhận 1]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">[Tên chứng nhận 1]</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/FAF9F6/457B9D?text=Ch%E1%BB%A9ng+nh%E1%BA%ADn+2" alt="[Giấy chứng nhận 2]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">[Tên chứng nhận 2]</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/F5EFED/1D3557?text=Ch%E1%BB%A9ng+nh%E1%BA%ADn+3" alt="[Giấy chứng nhận 3]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">[Tên chứng nhận 3]</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/FAF9F6/1D3557?text=Ch%E1%BB%A9ng+nh%E1%BA%ADn+4" alt="[Giấy chứng nhận 4]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">[Tên chứng nhận 4]</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Tài lẻ -->
+          <div class="parallax-reveal parallax-move" data-parallax-speed="-0.06">
+            <h3 class="font-serif text-2xl font-semibold text-sea mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-microphone-lines text-sea-light"></i> Tài lẻ (MC, ca hát, múa)
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/457B9D/FFFFFF?text=MC" alt="[Ảnh MC]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">MC / Dẫn chương trình</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/1D3557/FFFFFF?text=Ca+hat" alt="[Ảnh ca hát]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">Ca hát</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/A8DADC/1D3557?text=Mua" alt="[Ảnh múa]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">Nhảy múa / biểu diễn</figcaption>
+              </figure>
+              <figure class="rounded-xl overflow-hidden bg-beige border border-beige-alt shadow-sm">
+                <img src="https://placehold.co/400x520/F5EFED/457B9D?text=Tai+le" alt="[Ảnh tài lẻ khác]" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <figcaption class="p-3 text-xs text-sea/70 text-center">[Tài lẻ / hoạt động khác]</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </section>
