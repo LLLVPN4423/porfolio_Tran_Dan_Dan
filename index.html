@@ -468,68 +468,69 @@
       transition: width 1.2s ease-out;
     }
 
+    .softwares-panel {
+      background: #7da7d9;
+      border-radius: 1rem;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 12px 32px rgba(42, 59, 82, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+    @media (min-width: 640px) {
+      .softwares-panel {
+        padding: 1.75rem 1.5rem;
+      }
+    }
     .softwares-title {
       font-family: 'Caveat', cursive;
       font-size: 2.75rem;
       line-height: 1;
-      color: #5A7694;
+      color: #fff;
+    }
+    .softwares-panel-intro {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+    .software-skill-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      box-shadow: 0 2px 8px rgba(30, 42, 58, 0.08);
     }
     .software-icon {
-      width: 2.75rem;
-      height: 2.75rem;
+      width: 2.85rem;
+      height: 2.85rem;
       flex-shrink: 0;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff;
-      box-shadow: 0 1px 3px rgba(42, 59, 82, 0.12);
+      background: #f2f5f8;
+      box-shadow: inset 0 0 0 1px rgba(42, 59, 82, 0.06);
       padding: 0.35rem;
     }
-    .software-icon svg {
+    .software-icon img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-    }
-    .software-icon i {
-      font-size: 1.45rem;
-      line-height: 1;
-    }
-    .software-icon--capcut {
-      background: #0f0f0f;
-      padding: 0.25rem;
-    }
-    .software-icon--canva i {
-      color: #00c4cc;
-      font-size: 1.65rem;
-    }
-    .software-icon--word i {
-      color: #2b579a;
-    }
-    .software-icon--excel i {
-      color: #217346;
-    }
-    .software-icon--openai i {
-      color: #10a37f;
-    }
-    .software-icon--gemini {
-      background: linear-gradient(145deg, #4285f4 0%, #9b72cb 45%, #d96570 100%);
-      padding: 0.3rem;
-    }
-    .software-icon--gemini svg {
-      filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
-    }
-    .software-icon--copilot {
-      background: linear-gradient(135deg, #0078d4 0%, #7c3aed 55%, #e07a9a 100%);
-      padding: 0.35rem;
+      display: block;
     }
     .software-name {
       display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.8125rem;
+      font-weight: 700;
       color: #2a3b52;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
       letter-spacing: 0.02em;
+    }
+    .softwares-panel .software-bar-track {
+      background: #e6ecf2;
+    }
+    .softwares-panel .software-bar-fill {
+      background: linear-gradient(90deg, #5a7694 0%, #c8465c 100%);
     }
     .skills-cv-header {
       font-family: 'Inter', system-ui, sans-serif;
@@ -773,69 +774,14 @@
               </div>
             </div>
 
-            <!-- Công cụ (theo CV — Canva, CapCut, Word, Excel + AI) -->
-            <div class="parallax-reveal parallax-move" data-parallax-speed="-0.05">
+            <!-- Công cụ — thứ tự: Gemini, ChatGPT, Excel, Word, Canva -->
+            <div class="parallax-reveal parallax-move softwares-panel max-w-3xl" data-parallax-speed="-0.05">
               <h4 class="softwares-title mb-2">Công cụ</h4>
-              <p class="text-sm text-sea/65 mb-6 max-w-xl">Thành thạo máy tính văn phòng và công cụ AI theo mục Kỹ năng trên CV.</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 max-w-3xl">
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--capcut" title="CapCut">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#000"/><path fill="#00F2EA" d="M6.5 7.5 10 16.5h1.8L8.3 7.5H6.5zm4.2 0L14.5 16.5H16l-3.3-9H10.7z"/><path fill="#FF0050" d="M14.2 7.5h3.3l-3.3 9h-1.8l3.3-9z"/></svg>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <span class="software-name">CapCut</span>
-                    <div class="software-bar-track" aria-label="CapCut — quay dựng, 88%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="88" style="width: 0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--canva" title="Canva">
-                    <i class="fa-brands fa-canva" aria-hidden="true"></i>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <span class="software-name">Canva</span>
-                    <div class="software-bar-track" aria-label="Canva — thiết kế, 86%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="86" style="width: 0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--word" title="Microsoft Word">
-                    <i class="fa-solid fa-file-word" aria-hidden="true"></i>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <span class="software-name">Word</span>
-                    <div class="software-bar-track" aria-label="Microsoft Word, 85%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--excel" title="Microsoft Excel">
-                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <span class="software-name">Excel</span>
-                    <div class="software-bar-track" aria-label="Microsoft Excel, 84%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="84" style="width: 0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--openai" title="ChatGPT">
-                    <i class="fa-brands fa-openai" aria-hidden="true"></i>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <span class="software-name">ChatGPT</span>
-                    <div class="software-bar-track" aria-label="ChatGPT, 85%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="software-icon software-icon--gemini" title="Google Gemini">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 3.5c1.2 2.8 3.7 5.3 6.5 6.5-2.8 1.2-5.3 3.7-6.5 6.5-1.2-2.8-3.7-5.3-6.5-6.5 2.8-1.2 5.3-3.7 6.5-6.5z"/></svg>
+              <p class="softwares-panel-intro mb-6 max-w-xl">Thành thạo công cụ AI và bộ Office theo mục Kỹ năng trên CV.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div class="software-skill-row">
+                  <div class="software-icon" title="Google Gemini">
+                    <img src="./assets/skills-icons/gemini.png" alt="" width="40" height="40" loading="lazy" />
                   </div>
                   <div class="min-w-0 flex-1">
                     <span class="software-name">Gemini</span>
@@ -844,14 +790,47 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex items-center gap-3 sm:col-span-2 sm:max-w-[calc(50%-1.25rem)]">
-                  <div class="software-icon software-icon--copilot" title="Microsoft Copilot">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 4.5a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm-6.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm13 0a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/></svg>
+                <div class="software-skill-row">
+                  <div class="software-icon" title="ChatGPT">
+                    <img src="./assets/skills-icons/chatgpt.png" alt="" width="40" height="40" loading="lazy" />
                   </div>
                   <div class="min-w-0 flex-1">
-                    <span class="software-name">Copilot</span>
-                    <div class="software-bar-track" aria-label="Microsoft Copilot, 80%">
-                      <div class="software-bar-fill skill-bar-fill" data-width="80" style="width: 0;"></div>
+                    <span class="software-name">ChatGPT</span>
+                    <div class="software-bar-track" aria-label="ChatGPT, 85%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="software-skill-row">
+                  <div class="software-icon" title="Microsoft Excel">
+                    <img src="./assets/skills-icons/excel.png" alt="" width="40" height="40" loading="lazy" />
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Excel</span>
+                    <div class="software-bar-track" aria-label="Microsoft Excel, 84%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="84" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="software-skill-row">
+                  <div class="software-icon" title="Microsoft Word">
+                    <img src="./assets/skills-icons/word.png" alt="" width="40" height="40" loading="lazy" />
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Word</span>
+                    <div class="software-bar-track" aria-label="Microsoft Word, 85%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="85" style="width: 0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="software-skill-row sm:col-span-2">
+                  <div class="software-icon" title="Canva">
+                    <img src="./assets/skills-icons/canva.png" alt="" width="40" height="40" loading="lazy" />
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <span class="software-name">Canva</span>
+                    <div class="software-bar-track" aria-label="Canva — thiết kế, 86%">
+                      <div class="software-bar-fill skill-bar-fill" data-width="86" style="width: 0;"></div>
                     </div>
                   </div>
                 </div>
