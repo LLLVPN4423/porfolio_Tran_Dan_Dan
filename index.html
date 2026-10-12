@@ -416,6 +416,23 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(200, 70, 92, 0.15);
     }
+    .portfolio-modal-pair {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+    @media (min-width: 640px) {
+      .portfolio-modal-pair {
+        gap: 0.5rem;
+      }
+    }
+    .portfolio-modal-pair .portfolio-modal-thumb img {
+      aspect-ratio: auto;
+      max-height: min(70vh, 520px);
+      object-fit: contain;
+      background: #fff;
+    }
     .portfolio-modal-thumb img {
       display: block;
       width: 100%;
@@ -1124,8 +1141,7 @@
             </button>
             <div class="p-5 flex flex-col flex-1">
               <span class="text-xs uppercase tracking-wider text-sea-light font-semibold">Event</span>
-              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-2">Giải chạy</h3>
-              <p class="type-body text-sea/70 leading-relaxed"><strong class="text-sea/80 font-medium">Vai trò:</strong> [Điền vai trò — mô tả ngắn về dự án Giải chạy. Ảnh sẽ map từ thư mục assets/Event - Giải chạy.]</p>
+              <h3 class="font-serif type-card-title font-semibold text-sea mt-2 mb-0">Giải chạy</h3>
             </div>
             <button type="button" class="portfolio-open-gallery" data-open-gallery><i class="fa-solid fa-folder-open mr-1.5" aria-hidden="true"></i>Xem tài nguyên</button>
           </article>
@@ -1585,6 +1601,46 @@
       });
     }
 
+    function portfolioThumbHtml(img, index) {
+      return (
+        '<button type="button" class="portfolio-modal-thumb" data-lightbox-index="' +
+        index +
+        '" aria-label="Xem ' +
+        img.alt.replace(/"/g, '&quot;') +
+        '">' +
+        '<img src="' +
+        img.src +
+        '" alt="' +
+        img.alt.replace(/"/g, '&quot;') +
+        '" loading="lazy" />' +
+        '</button>'
+      );
+    }
+
+    function buildPortfolioModalGridHtml(gallery) {
+      const images = gallery.images;
+      const pairStart =
+        typeof gallery.pairStartsAt === 'number' && gallery.pairStartsAt >= 0
+          ? gallery.pairStartsAt
+          : null;
+      if (pairStart == null || pairStart >= images.length) {
+        return images.map((img, index) => portfolioThumbHtml(img, index)).join('');
+      }
+      let html = '';
+      for (let i = 0; i < pairStart; i++) {
+        html += portfolioThumbHtml(images[i], i);
+      }
+      for (let i = pairStart; i < images.length; i += 2) {
+        html += '<div class="portfolio-modal-pair">';
+        html += portfolioThumbHtml(images[i], i);
+        if (i + 1 < images.length) {
+          html += portfolioThumbHtml(images[i + 1], i + 1);
+        }
+        html += '</div>';
+      }
+      return html;
+    }
+
     function openPortfolioGallery(galleryId, title) {
       const gallery = portfolioGalleries[galleryId];
       if (!gallery || !gallery.images.length) return;
@@ -1597,22 +1653,7 @@
       portfolioModalCount.textContent =
         gallery.images.length + ' ảnh trong thư mục — nhấn từng ảnh để xem lớn.';
 
-      portfolioModalGrid.innerHTML = gallery.images
-        .map(
-          (img, index) =>
-            '<button type="button" class="portfolio-modal-thumb" data-lightbox-index="' +
-            index +
-            '" aria-label="Xem ' +
-            img.alt.replace(/"/g, '&quot;') +
-            '">' +
-            '<img src="' +
-            img.src +
-            '" alt="' +
-            img.alt.replace(/"/g, '&quot;') +
-            '" loading="lazy" />' +
-            '</button>'
-        )
-        .join('');
+      portfolioModalGrid.innerHTML = buildPortfolioModalGridHtml(gallery);
 
       portfolioGalleryModal.classList.add('is-open');
       portfolioGalleryModal.setAttribute('aria-hidden', 'false');
