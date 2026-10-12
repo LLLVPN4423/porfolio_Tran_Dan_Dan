@@ -416,6 +416,15 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(200, 70, 92, 0.15);
     }
+    .portfolio-modal-section-label {
+      grid-column: 1 / -1;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(42, 59, 82, 0.65);
+      margin: 0.25rem 0 0.125rem;
+    }
     .portfolio-modal-pair {
       grid-column: 1 / -1;
       display: grid;
@@ -1623,21 +1632,41 @@
         typeof gallery.pairStartsAt === 'number' && gallery.pairStartsAt >= 0
           ? gallery.pairStartsAt
           : null;
+      const pairEnd =
+        typeof gallery.pairEndsAt === 'number' && gallery.pairEndsAt > pairStart
+          ? Math.min(gallery.pairEndsAt, images.length)
+          : images.length;
+
       if (pairStart == null || pairStart >= images.length) {
         return images.map((img, index) => portfolioThumbHtml(img, index)).join('');
       }
+
       let html = '';
-      for (let i = 0; i < pairStart; i++) {
-        html += portfolioThumbHtml(images[i], i);
+      if (pairStart > 0) {
+        for (let i = 0; i < pairStart; i++) {
+          html += portfolioThumbHtml(images[i], i);
+        }
+      } else if (pairEnd > pairStart) {
+        html +=
+          '<p class="portfolio-modal-section-label">3 cặp ảnh ghép (trái → phải)</p>';
       }
-      for (let i = pairStart; i < images.length; i += 2) {
+
+      for (let i = pairStart; i < pairEnd; i += 2) {
         html += '<div class="portfolio-modal-pair">';
         html += portfolioThumbHtml(images[i], i);
-        if (i + 1 < images.length) {
+        if (i + 1 < pairEnd) {
           html += portfolioThumbHtml(images[i + 1], i + 1);
         }
         html += '</div>';
       }
+
+      if (pairEnd < images.length) {
+        html += '<p class="portfolio-modal-section-label">Ảnh hoạt động khác</p>';
+        for (let i = pairEnd; i < images.length; i++) {
+          html += portfolioThumbHtml(images[i], i);
+        }
+      }
+
       return html;
     }
 
@@ -1650,8 +1679,14 @@
 
       portfolioModalTitle.textContent = title || gallery.folder;
       portfolioModalFolder.textContent = 'assets/' + gallery.folder;
-      portfolioModalCount.textContent =
-        gallery.images.length + ' ảnh trong thư mục — nhấn từng ảnh để xem lớn.';
+      if (galleryId === 'thuc-tap-fpt') {
+        portfolioModalCount.textContent =
+          gallery.images.length +
+          ' ảnh — 6 ảnh mới (3 cặp ghép) hiển thị ngay đầu album; cuộn xuống xem thêm 7 ảnh.';
+      } else {
+        portfolioModalCount.textContent =
+          gallery.images.length + ' ảnh trong thư mục — nhấn từng ảnh để xem lớn.';
+      }
 
       portfolioModalGrid.innerHTML = buildPortfolioModalGridHtml(gallery);
 
@@ -1696,7 +1731,7 @@
       openPortfolioLightbox(lightboxIndex + delta);
     }
 
-    fetch('./assets/portfolio-galleries.json')
+    fetch('./assets/portfolio-galleries.json?v=20261013-fpt-pairs')
       .then((res) => {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();

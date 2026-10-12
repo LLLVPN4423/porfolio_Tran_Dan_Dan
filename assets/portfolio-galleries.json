@@ -68,8 +68,33 @@
     "thuc-tap-fpt": {
       "id": "thuc-tap-fpt",
       "folder": "Thực tập FPT",
-      "pairStartsAt": 7,
+      "pairStartsAt": 0,
+      "pairEndsAt": 6,
       "images": [
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-1-left.jpg",
+          "alt": "FPT cap 1 — trái"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-1-right.jpg",
+          "alt": "FPT cap 1 — phải"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-2-left.jpg",
+          "alt": "FPT cap 2 — trái"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-2-right.jpg",
+          "alt": "FPT cap 2 — phải"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-3-left.jpg",
+          "alt": "FPT cap 3 — trái"
+        },
+        {
+          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-3-right.jpg",
+          "alt": "FPT cap 3 — phải"
+        },
         {
           "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%201.jpg",
           "alt": "fpt 1"
@@ -97,30 +122,6 @@
         {
           "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt%207.jpg",
           "alt": "fpt 7"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-1-left.jpg",
-          "alt": "FPT cap 1 — trái"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-1-right.jpg",
-          "alt": "FPT cap 1 — phải"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-2-left.jpg",
-          "alt": "FPT cap 2 — trái"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-2-right.jpg",
-          "alt": "FPT cap 2 — phải"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-3-left.jpg",
-          "alt": "FPT cap 3 — trái"
-        },
-        {
-          "src": "./assets/Th%E1%BB%B1c%20t%E1%BA%ADp%20FPT/fpt-cap-3-right.jpg",
-          "alt": "FPT cap 3 — phải"
         }
       ]
     },
