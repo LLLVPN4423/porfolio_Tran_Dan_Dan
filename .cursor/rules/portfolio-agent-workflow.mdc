@@ -1,0 +1,11 @@
+---
+description: Đọc PROJECT_CONTEXT và ghi AGENT_CHANGELOG trước/sau khi sửa portfolio
+alwaysApply: true
+---
+
+# Portfolio Trần Đan Đan — workflow agent
+
+1. **Bắt đầu:** Đọc `AGENTS.md` rồi `PROJECT_CONTEXT.md`. Chỉ mở thêm file khi task cần (vd. `index.html`, `assets/portfolio-galleries.json`).
+2. **Kết thúc:** Thêm entry mới (đầu file) vào `AGENT_CHANGELOG.md`: yêu cầu user, file đã sửa, deploy/commit.
+3. **Scope:** Site tĩnh một file HTML; ưu tiên diff nhỏ, khớp convention hiện có.
+4. **Không commit** helper `_*.mjs`, `_assets_manifest.json`, `_drive_list.html` trừ khi user yêu cầu.
